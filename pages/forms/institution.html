@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Institution Grid</title>
+    <link rel="stylesheet" type="text/css" href="demos.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600,400' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="../css/jsgrid.css" />
+    <link rel="stylesheet" type="text/css" href="../css/theme.css" />
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/cupertino/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+
+    <script src="db.js"></script>
+
+    <script src="../src/jsgrid.core.js"></script>
+    <script src="../src/jsgrid.load-indicator.js"></script>
+    <script src="../src/jsgrid.load-strategies.js"></script>
+    <script src="../src/jsgrid.sort-strategies.js"></script>
+    <script src="../src/jsgrid.field.js"></script>
+    <script src="../src/fields/jsgrid.field.text.js"></script>
+    <script src="../src/fields/jsgrid.field.number.js"></script>
+    <script src="../src/fields/jsgrid.field.select.js"></script>
+    <script src="../src/fields/jsgrid.field.checkbox.js"></script>
+    <script src="../src/fields/jsgrid.field.control.js"></script>
+
+    <style>
+        .ui-widget *, .ui-widget input, .ui-widget select, .ui-widget button {
+            font-family: 'Helvetica Neue Light', 'Open Sans', Helvetica;
+            font-size: 14px;
+            font-weight: 300 !important;
+        }
+
+        .details-form-field input,
+        .details-form-field select {
+            width: 250px;
+            float: right;
+        }
+
+        .details-form-field {
+            margin: 30px 0;
+        }
+
+        .details-form-field:first-child {
+            margin-top: 10px;
+        }
+
+        .details-form-field:last-child {
+            margin-bottom: 10px;
+        }
+
+        .details-form-field button {
+            display: block;
+            width: 100px;
+            margin: 0 auto;
+        }
+
+        input.error, select.error {
+            border: 1px solid #ff9999;
+            background: #ffeeee;
+        }
+
+        label.error {
+            float: right;
+            margin-left: 100px;
+            font-size: .8em;
+            color: #ff6666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Institution Grid</h1>
+    <div id="jsGrid"></div>
+
+    <div id="detailsDialog">
+        <form id="detailsForm" name="detailsForm">
+		    <input type="hidden" name="id" id="id"/>
+            <div class="details-form-field">
+                <label for="name">Institution Code:</label>
+                <input id="code" name="institutioncode" type="text" />
+            </div>
+            <div class="details-form-field">
+                <label for="age">Institution Name:</label>
+                <input id="name" name="institutionname" type="text" />
+            </div>
+            <div class="details-form-field">
+                <button type="submit" id="save">Save</button>
+            </div>
+        </form>
+    </div>
+	
+	<div id = "dialog-1" 
+         title = "Please check again">Data already exists, please re-enter!</div>
+
+    <script>
+        $(function() {
+
+			$( "#dialog-1" ).dialog({
+               autoOpen: false,  
+            });
+			
+            $("#jsGrid").jsGrid({
+                height: "70%",
+                width: "100%",
+                editing: true,
+                autoload: true,
+                paging: true,
+				sorting: true,
+				sortorder:'desc',
+                deleteConfirm: function(item) {
+                    //return "The client \"" + item.ID + "\" will be removed. Are you sure?";
+					$.ajax({
+					url: "http://localhost:5000/institution_delete",
+					data:{
+					    id:item.ID
+					},
+					headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+					success: function(response) {
+						location.reload();
+					},
+					error: function(error) {
+						console.log(error);
+					}
+				   });
+				
+                },
+                rowClick: function(args) {
+			
+                    showDetailsDialog("Edit", args.item);
+
+                },
+                //controller: db,
+				controller:{
+					loadData : function(filter) {
+ 					   var d = $.Deferred();
+				
+					   $.ajax({
+						url: 'http://localhost:5000/institution_load',
+						type: 'POST',
+						dataType: "json",
+						headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+                        }).done(function (response) {
+  
+							var text = '[' ;
+							for(i=0;i<response.length;i++){
+								text +='{ "ID":"'+response[i][0]+'" , "InstitutionCode":'+response[i][1]+', "InstitutionName": "'+response[i][2]+'","InstitutionStatus": "'+response[i][3]+'"}';
+								if(i>=0 && i<response.length-1)
+								text+=","
+							}
+							text+=']';
+						
+							obj = JSON.parse(text);
+							
+							
+                            d.resolve(obj);
+                        });
+                        return d.promise();
+					}
+				},
+                fields: [
+                    { name: "ID", type: "text",  title: "ID", width: 150 },
+                    { name: "InstitutionCode", title: "InstitutionCode",type: "number", width: 50 },
+                    { name: "InstitutionName", type: "text",title: "InstitutionStatus", width: 200 },
+                    {
+                        type: "control",
+                        modeSwitchButton: false,
+                        editButton: false,
+						sorting: true,
+                        headerTemplate: function() {
+                            return $("<button>").attr("type", "button").text("Add Institution")
+                                .on("click", function () {
+                                    showDetailsDialog("Add Institution", {});
+                                });
+                        }
+                    }
+                ]
+            });
+
+            $("#detailsDialog").dialog({
+                autoOpen: false,
+                width: 400,
+                close: function() {
+                    $("#detailsForm").validate().resetForm();
+                    $("#detailsForm").find(".error").removeClass("error");
+                }
+            });
+
+            $("#detailsForm").validate({
+                rules: {
+                    name: "required",
+                    country: "required"
+                },
+                messages: {
+                    name: "Please enter name",
+                    country: "Please select country"
+                },
+                submitHandler: function() {
+                    formSubmitHandler();
+                }
+            });
+
+            var formSubmitHandler = $.noop;
+
+            var showDetailsDialog = function(dialogType, client) {
+                $("#code").val(client.InstitutionCode);
+                $("#name").val(client.InstitutionName);
+				$("#id").val(client.ID);
+
+
+                formSubmitHandler = function() {
+				   if(dialogType === "Add Institution")
+                    saveClient(client, dialogType === "Add Institution");
+				   else if(dialogType === "Edit") 	
+				    editClient(client, dialogType === "Edit");
+                };
+				
+                $("#detailsDialog").dialog("option", "title", dialogType)
+                    .dialog("open");
+            };
+
+            var editClient = function(client, isNew) {
+			alert('editClient');
+				   $.ajax({
+					url: "http://localhost:5000/institution_edit",
+			        data: $('#detailsForm').serialize(),
+					type: 'POST',
+					headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+					success: function(response) {
+						location.reload();
+					},
+					error: function(error) {
+						console.log(error);
+					}
+				   });
+			}
+			
+            var saveClient = function(client, isNew) {
+                
+                alert('saveClient');
+                $("#jsGrid").jsGrid(isNew ? "insertItem" : "updateItem", client);
+				
+				 $.ajax({
+					url: 'http://localhost:5000/institution_save',
+					data: $('#detailsForm').serialize(),
+					type: 'POST',
+					headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+					success: function(response) {
+					
+						if(response[0]=='0'){
+						   $( "#dialog-1" ).dialog( "open" );
+						}else{
+						  location.reload();
+						}
+					},
+					error: function(error) {
+						console.log(error);
+					}
+				});
+				
+				//'http://localhost:5000/institution_save?code=456456&name=456&status=0',
+				//$.ajax({
+				//	url: 'http://localhost:5000/institution_save',
+				//	type: 'POST',
+				//	data : {'code':9999},
+				//	contentType: 'application/json;charset=UTF-8',
+					//dataType: "json",
+					//data: sendData,
+					//data: "{code:'"+$("#code").val()+"',name:'"+$("#name").val()+"'，name:'"+$("#name").val()+"'}",
+				//	headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+				//	success: function(result) {
+						
+						/*
+							$.extend(client, {
+							code: $("#code").val(),
+							name: $("#name").val(),
+							Address: $("#address").val(),
+							Country: parseInt($("#country").val(), 10),
+							Married: $("#married").is(":checked")
+					       });
+					    */
+				//	}
+				//});
+				
+                $("#detailsDialog").dialog("close");
+            };
+
+        });
+    </script>
+</body>
+</html>

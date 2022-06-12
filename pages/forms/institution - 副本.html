@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | jsGrid</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- jsGrid -->
+  <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid.min.css">
+  <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid-theme.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition">
+<div class="wrapper">
+  
+      <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Institution Form</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+	
+ <!-- Main content -->
+    <section class="content">
+	
+	 <!-- Custom Tabs -->
+            <div class="card">
+              <div class="card-header d-flex p-0">
+                <ul class="nav nav-pills ml-auto p-2">
+                  <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">add Institution</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Institution List</a></li>
+                 
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_1">
+          
+		  <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">add Institution</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form id="quickForm">
+                <div class="card-body">
+                 <div class="form-group">
+                    <label for="exampleInputEmail1">Institution</label>
+                    <input type="text" name="username" class="form-control" id="usernameinput" placeholder="Enter Institution">
+				  </div>
+				  
+				 <div class="form-group">
+                    <label for="exampleInputEmail1">Institution Code</label>
+                    <input type="text" name="username" class="form-control" id="usernameinput" placeholder="Enter Institution code">
+				  </div>
+				
+                 
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+            </div>
+          <!--/.col (left) -->
+        </div>
+        <!-- /.row -->
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="tab_2">
+                   <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Institution List</h3>
+              </div>
+              <!-- /.card-header -->
+				<div class="card-body">
+					<div id="jsgridinstitution"></div>
+				</div>
+            </div>
+            <!-- /.card -->
+            </div>
+          <!--/.col (left) -->
+        </div>
+        <!-- /.row -->
+                  </div>
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+ </div>
+
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- jsGrid -->
+<script src="../../plugins/jsgrid/demos/db.js"></script>
+<script src="../../plugins/jsgrid/jsgrid.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+
+<!-- Page specific script -->
+<script>
+  $(function () {
+  
+   //console.log(db.clients);
+   
+   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+   $("#jsgridinstitution").jsGrid({
+        height: "100%",
+        width: "100%",
+
+        sorting: true,
+        paging: true,
+        rowClick: function (args) {
+		     var $row = this.rowByItem(args.item);
+             console.log("======================"+args.item);
+			 console.log("======================"+$row[0].item);
+			 
+		
+			 
+        },
+        data: db.clients,
+
+        fields: [
+            { name: "Name", type: "text", width: 150 },
+            { name: "Age", type: "number", width: 50 },
+            { name: "Address", type: "checkbox", width: 200 }
+        ],
+    });
+	
+	
+   });
+
+  });
+</script>
+</body>
+</html>
