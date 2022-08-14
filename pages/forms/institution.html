@@ -14,7 +14,7 @@
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 
-    <script src="db.js"></script>
+    <script src="../../plugins/jsgrid/demos/db.js"></script>
 
     <script src="../src/jsgrid.core.js"></script>
     <script src="../src/jsgrid.load-indicator.js"></script>
@@ -91,17 +91,17 @@
             </div>
         </form>
     </div>
-	
-	<div id = "dialog-1" 
+
+	<div id = "dialog-1"
          title = "Please check again">Data already exists, please re-enter!</div>
 
     <script>
         $(function() {
 
 			$( "#dialog-1" ).dialog({
-               autoOpen: false,  
+               autoOpen: false,
             });
-			
+
             $("#jsGrid").jsGrid({
                 height: "70%",
                 width: "100%",
@@ -113,7 +113,7 @@
                 deleteConfirm: function(item) {
                     //return "The client \"" + item.ID + "\" will be removed. Are you sure?";
 					$.ajax({
-					url: "http://localhost:5000/institution_delete",
+					url: "http://127.0.0.1:5000/institution_delete",
 					data:{
 					    id:item.ID
 					},
@@ -125,10 +125,10 @@
 						console.log(error);
 					}
 				   });
-				
+
                 },
                 rowClick: function(args) {
-			
+
                     showDetailsDialog("Edit", args.item);
 
                 },
@@ -136,25 +136,28 @@
 				controller:{
 					loadData : function(filter) {
  					   var d = $.Deferred();
-				
-					   $.ajax({
-						url: 'http://localhost:5000/institution_load',
-						type: 'POST',
-						dataType: "json",
-						headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
-                        }).done(function (response) {
-  
+
+					  $.ajax({
+              url: 'http://127.0.0.1:5000/institution_load',
+              type: 'POST',
+              dataType: "json",
+              headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+                          }).done(function (response) {
+
+
 							var text = '[' ;
 							for(i=0;i<response.length;i++){
-								text +='{ "ID":"'+response[i][0]+'" , "InstitutionCode":'+response[i][1]+', "InstitutionName": "'+response[i][2]+'","InstitutionStatus": "'+response[i][3]+'"}';
+								text +='{ "ID":"'+response[i][0]+'" , "InstitutionCode":"'+response[i][1]+'", "InstitutionName": "'+response[i][2]+'"}';
 								if(i>=0 && i<response.length-1)
 								text+=","
 							}
 							text+=']';
-						
+
+              console.log(text);
+
 							obj = JSON.parse(text);
-							
-							
+
+
                             d.resolve(obj);
                         });
                         return d.promise();
@@ -213,42 +216,40 @@
                 formSubmitHandler = function() {
 				   if(dialogType === "Add Institution")
                     saveClient(client, dialogType === "Add Institution");
-				   else if(dialogType === "Edit") 	
+				   else if(dialogType === "Edit")
 				    editClient(client, dialogType === "Edit");
                 };
-				
+
                 $("#detailsDialog").dialog("option", "title", dialogType)
                     .dialog("open");
             };
 
             var editClient = function(client, isNew) {
-			alert('editClient');
-				   $.ajax({
-					url: "http://localhost:5000/institution_edit",
-			        data: $('#detailsForm').serialize(),
-					type: 'POST',
-					headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
-					success: function(response) {
-						location.reload();
-					},
-					error: function(error) {
-						console.log(error);
-					}
+                 $.ajax({
+                url: "http://127.0.0.1:5000/institution_edit",
+                    data: $('#detailsForm').serialize(),
+                type: 'POST',
+                headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+                success: function(response) {
+                  location.reload();
+                },
+                error: function(error) {
+                  console.log(error);
+                }
 				   });
 			}
-			
+
             var saveClient = function(client, isNew) {
-                
-                alert('saveClient');
+
                 $("#jsGrid").jsGrid(isNew ? "insertItem" : "updateItem", client);
-				
+
 				 $.ajax({
-					url: 'http://localhost:5000/institution_save',
+					url: 'http://127.0.0.1:5000/institution_save',
 					data: $('#detailsForm').serialize(),
 					type: 'POST',
 					headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
 					success: function(response) {
-					
+
 						if(response[0]=='0'){
 						   $( "#dialog-1" ).dialog( "open" );
 						}else{
@@ -259,31 +260,9 @@
 						console.log(error);
 					}
 				});
-				
-				//'http://localhost:5000/institution_save?code=456456&name=456&status=0',
-				//$.ajax({
-				//	url: 'http://localhost:5000/institution_save',
-				//	type: 'POST',
-				//	data : {'code':9999},
-				//	contentType: 'application/json;charset=UTF-8',
-					//dataType: "json",
-					//data: sendData,
-					//data: "{code:'"+$("#code").val()+"',name:'"+$("#name").val()+"'，name:'"+$("#name").val()+"'}",
-				//	headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
-				//	success: function(result) {
-						
-						/*
-							$.extend(client, {
-							code: $("#code").val(),
-							name: $("#name").val(),
-							Address: $("#address").val(),
-							Country: parseInt($("#country").val(), 10),
-							Married: $("#married").is(":checked")
-					       });
-					    */
-				//	}
-				//});
-				
+
+
+
                 $("#detailsDialog").dialog("close");
             };
 
