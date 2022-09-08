@@ -111,7 +111,7 @@
 
           $.ajax({
             type: 'POST',
-            url: "http://127.0.0.1:5000/users_register",
+            url: "https://nyuservices.azurewebsites.net/users_register",
             data: $('#detailsForm').serialize(),
             error: function(e) {
               console.log(e);
@@ -119,19 +119,6 @@
             dataType: "json",
             contentType: "application/json"
           });
-
-<!--				 $.ajax({-->
-<!--					url: 'http://127.0.0.1:5000/users_register',-->
-<!--          data: $('#detailsForm').serialize(),-->
-<!--					type: 'POST',-->
-<!--					success: function(response) {-->
-
-<!--						console.log(response);-->
-<!--					},-->
-<!--					error: function(error) {-->
-<!--						console.log(error);-->
-<!--					}-->
-<!--				});-->
       });
   });
 </script>
