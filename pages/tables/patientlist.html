@@ -9,472 +9,282 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- jsGrid -->
-  <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid.min.css">
-  <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid-theme.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body class="hold-transition">
 <div class="wrapper">
   <!-- /.navbar -->
-    <!-- Main content -->
-    <section class="content">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">User Grids</h3>
+  <div class="container col-md-12">
+  <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Patient List
         </div>
-        <!-- /.card-header -->
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.5
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5.5</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 6
-                    </td>
-                    <td>Win 98+</td>
-                    <td>6</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet Explorer 7</td>
-                    <td>Win XP SP2+</td>
-                    <td>7</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>AOL browser (AOL desktop)</td>
-                    <td>Win XP</td>
-                    <td>6</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Firefox 1.0</td>
-                    <td>Win 98+ / OSX.2+</td>
-                    <td>1.7</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Firefox 1.5</td>
-                    <td>Win 98+ / OSX.2+</td>
-                    <td>1.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Firefox 2.0</td>
-                    <td>Win 98+ / OSX.2+</td>
-                    <td>1.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Firefox 3.0</td>
-                    <td>Win 2k+ / OSX.3+</td>
-                    <td>1.9</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Camino 1.0</td>
-                    <td>OSX.2+</td>
-                    <td>1.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Camino 1.5</td>
-                    <td>OSX.3+</td>
-                    <td>1.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Netscape 7.2</td>
-                    <td>Win 95+ / Mac OS 8.6-9.2</td>
-                    <td>1.7</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Netscape Browser 8</td>
-                    <td>Win 98SE+</td>
-                    <td>1.7</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Netscape Navigator 9</td>
-                    <td>Win 98+ / OSX.2+</td>
-                    <td>1.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Mozilla 1.0</td>
-                    <td>Win 95+ / OSX.1+</td>
-                    <td>1</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Mozilla 1.1</td>
-                    <td>Win 95+ / OSX.1+</td>
-                    <td>1.1</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Mozilla 1.2</td>
-                    <td>Win 95+ / OSX.1+</td>
-                    <td>1.2</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Mozilla 1.3</td>
-                    <td>Win 95+ / OSX.1+</td>
-                    <td>1.3</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Mozilla 1.4</td>
-                    <td>Win 95+ / OSX.1+</td>
-                    <td>1.4</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Mozilla 1.5</td>
-                    <td>Win 95+ / OSX.1+</td>
-                    <td>1.5</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Mozilla 1.6</td>
-                    <td>Win 95+ / OSX.1+</td>
-                    <td>1.6</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Mozilla 1.7</td>
-                    <td>Win 98+ / OSX.1+</td>
-                    <td>1.7</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Mozilla 1.8</td>
-                    <td>Win 98+ / OSX.1+</td>
-                    <td>1.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Seamonkey 1.1</td>
-                    <td>Win 98+ / OSX.2+</td>
-                    <td>1.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Epiphany 2.20</td>
-                    <td>Gnome</td>
-                    <td>1.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Webkit</td>
-                    <td>Safari 1.2</td>
-                    <td>OSX.3</td>
-                    <td>125.5</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Webkit</td>
-                    <td>Safari 1.3</td>
-                    <td>OSX.3</td>
-                    <td>312.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Webkit</td>
-                    <td>Safari 2.0</td>
-                    <td>OSX.4+</td>
-                    <td>419.3</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Webkit</td>
-                    <td>Safari 3.0</td>
-                    <td>OSX.4+</td>
-                    <td>522.1</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Webkit</td>
-                    <td>OmniWeb 5.5</td>
-                    <td>OSX.4+</td>
-                    <td>420</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Webkit</td>
-                    <td>iPod Touch / iPhone</td>
-                    <td>iPod</td>
-                    <td>420.1</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Webkit</td>
-                    <td>S60</td>
-                    <td>S60</td>
-                    <td>413</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 7.0</td>
-                    <td>Win 95+ / OSX.1+</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 7.5</td>
-                    <td>Win 95+ / OSX.2+</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 8.0</td>
-                    <td>Win 95+ / OSX.2+</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 8.5</td>
-                    <td>Win 95+ / OSX.2+</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 9.0</td>
-                    <td>Win 95+ / OSX.3+</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 9.2</td>
-                    <td>Win 88+ / OSX.3+</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 9.5</td>
-                    <td>Win 88+ / OSX.3+</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera for Wii</td>
-                    <td>Wii</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Nokia N800</td>
-                    <td>N800</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Nintendo DS browser</td>
-                    <td>Nintendo DS</td>
-                    <td>8.5</td>
-                    <td>C/A<sup>1</sup></td>
-                  </tr>
-                  <tr>
-                    <td>KHTML</td>
-                    <td>Konqureror 3.1</td>
-                    <td>KDE 3.1</td>
-                    <td>3.1</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>KHTML</td>
-                    <td>Konqureror 3.3</td>
-                    <td>KDE 3.3</td>
-                    <td>3.3</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>KHTML</td>
-                    <td>Konqureror 3.5</td>
-                    <td>KDE 3.5</td>
-                    <td>3.5</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Tasman</td>
-                    <td>Internet Explorer 4.5</td>
-                    <td>Mac OS 8-9</td>
-                    <td>-</td>
-                    <td>X</td>
-                  </tr>
-                  <tr>
-                    <td>Tasman</td>
-                    <td>Internet Explorer 5.1</td>
-                    <td>Mac OS 7.6-9</td>
-                    <td>1</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Tasman</td>
-                    <td>Internet Explorer 5.2</td>
-                    <td>Mac OS 8-X</td>
-                    <td>1</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Misc</td>
-                    <td>NetFront 3.1</td>
-                    <td>Embedded devices</td>
-                    <td>-</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Misc</td>
-                    <td>NetFront 3.4</td>
-                    <td>Embedded devices</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Misc</td>
-                    <td>Dillo 0.8</td>
-                    <td>Embedded devices</td>
-                    <td>-</td>
-                    <td>X</td>
-                  </tr>
-                  <tr>
-                    <td>Misc</td>
-                    <td>Links</td>
-                    <td>Text only</td>
-                    <td>-</td>
-                    <td>X</td>
-                  </tr>
-                  <tr>
-                    <td>Misc</td>
-                    <td>Lynx</td>
-                    <td>Text only</td>
-                    <td>-</td>
-                    <td>X</td>
-                  </tr>
-                  <tr>
-                    <td>Misc</td>
-                    <td>IE Mobile</td>
-                    <td>Windows Mobile 6</td>
-                    <td>-</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Misc</td>
-                    <td>PSP browser</td>
-                    <td>PSP</td>
-                    <td>-</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Other browsers</td>
-                    <td>All others</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>U</td>
-                  </tr>
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
-                  </tr>
-                  </tfoot>
+        <div class="panel-body">
+          <table class="table table-condensed table-striped">
+    <thead>
+        <tr id="panel_title">
+          
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle" id="medical_record_number">
+           <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+        </tr>
+      
+        <tr>
+            <td colspan="06" class="hiddenRow">
+              Patient Characteristics
+              <div class="accordian-body collapse" id="demo1"> 
+
+              <table class="table table-condensed table-striped">
+                        <tr id=age_range>
+            
+                        </tr>
+   
+                      
+                      <tbody>
+                        
+                        <tr data-toggle="collapse"  class="accordion-toggle" id="weight_range_t">
+     
+                        </tr>
+          
+                                                    
+                        <tr id="gender">
+                
+                        </tr>
+                        
+                            
+                        <tr id="race">
+                         
+                        </tr>
+                        
+                            
+                        <tr id="performance_status">
+                         
+                        </tr>
+                
+               
+                      </tbody>
                 </table>
-              </div>
-              <!-- /.card-body -->
+              
+              </div> 
+          </td>
+        </tr>
+      
+      
+      
+        <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">Diagnosis
+            <div id="demo2" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+                        <tr id="cancer_by_location"></tr>
+                        <tr id="cancer_by_type"></tr>
+                        <tr id="histopathologic_type"></tr>
+                        <tr id="histopathologic_tumor_grade"></tr>
+                </table>
+
+            </div></td>
+        </tr>
+        <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">Cancer Staging
+            <div id="demo3" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+                        <tr id="staging_system_version"></tr>
+                        <tr id="classification"></tr>
+                        <tr id="primary_tumor"></tr>
+                        <tr id="regional_lymph_node"></tr>
+                        <tr id="distant_metastasis"></tr>
+                </table>
+
+            </div></td>
+        </tr>
+
+        <tr data-toggle="collapse" data-target="#demo4" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">Cancer Specific Lab
+            <div id="demo4" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+                        <tr id="estrogen_receptor_status"></tr>
+                        <tr id="progesterone_receptor_status"></tr>
+                        <tr id="her2neu_status"></tr>
+                </table>
+
+            </div></td>
+        </tr>
+
+
+        <tr data-toggle="collapse" data-target="#demo5" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">Tumor Characteristics and History
+            <div id="demo5" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+             <tr id="dimension_range"></tr>
+             <tr id="volume_range"></tr>
+             <tr id="laterality"></tr>
+             <tr id="prior_treatment"></tr>
+            </table>
+
+            </div></td>
+        </tr>
+
+         <tr data-toggle="collapse" data-target="#demo6" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">Treatment
+            <div id="demo6" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+             <tr id="treatment_intent"></tr>
+             <tr id="treatment_setting"></tr>
+             <tr id="roost_dose_modality"></tr>
+             <tr id="additional_therapies"></tr>
+             <tr id="type_of_therapy"></tr>
+             <tr id="timing_of_therapy"></tr>
+            </table>
+            </div></td>
+        </tr>
+
+        <tr data-toggle="collapse" data-target="#demo7" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">TCP Outcomes
+            <div id="demo7" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+             <tr id="tcp_outcomes"></tr>
+             <tr id="end_point_primary"></tr>
+             <tr id="end_point_secondary"></tr>
+            </table>
+            </div></td>
+        </tr>
+
+
+        <tr data-toggle="collapse" data-target="#demo8" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">Median Follow-up (months)
+            <div id="demo8" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+             <tr id="local_control"></tr>
+             <tr id="overall_survival"></tr>
+             <tr id="quality_of_life"></tr>
+            </table>
+            </div></td>
+        </tr>
+
+
+        <tr data-toggle="collapse" data-target="#demo9" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">NTCP Outcomes
+            <div id="demo9" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+             <tr id="ntcp_outcomes_end_point_primary"></tr>
+             <tr id="ntcp_outcomes_end_point_secondy"></tr>
+             <tr id="median_follow_up"></tr>
+             <tr id="ntcp_outcomes_acute"></tr>
+             <tr id="ntcp_outcomes_g1"></tr>
+             <tr id="ntcp_outcomes_g2"></tr>
+             <tr id="ntcp_outcomes_g3"></tr>
+             <tr id="ntcp_outcomes_g4"></tr>
+             <tr id="ntcp_outcomes_g5"></tr>
+            </table>
+            </div></td>
+        </tr>
+
+        <tr data-toggle="collapse" data-target="#demo10" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">Treatment Techniques
+            <div id="demo10" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+             <tr id="modality"></tr>
+             <tr id="planing"></tr>
+             <tr id="delivery"></tr>
+             <tr id="imaging"></tr>
+             <tr id="setup"></tr>
+            </table>
+            </div></td>
+        </tr>
+
+
+    </tbody>
+</table>
             </div>
-        <!-- /.card-body -->
+        
+          </div> 
+        
       </div>
-      <!-- /.card -->
-    </section>
-    <!-- /.content -->
-	
+  </div>
+  
+
+
  </div>
 
-  <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
@@ -483,36 +293,284 @@
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- jsGrid -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../plugins/jszip/jszip.min.js"></script>
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="../../plugins/jsgrid/demos/db.js"></script>
+<script src="../../plugins/jsgrid/jsgrid.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 
+<!-- Page specific script -->
 <script>
   $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
+
+
+    $.ajax({
+      url: 'http://127.0.0.1:5000/patient_load',
+      type: 'POST',
+      headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+      success: function(response) {
+
+        var obj = $.parseJSON(response);
+        var panel_title='';
+        var medical_record_number='';
+        var age_range='';
+        var weight_range_t='';
+        var gender='';
+        var race='';
+        var performance_status='';
+
+        var cancer_by_location='';
+        var cancer_by_type='';
+        var histopathologic_type='';
+        var histopathologic_tumor_grade='';
+
+        var staging_system_version='';
+        var classification='';
+        var primary_tumor='';
+        var regional_lymph_node='';
+        var distant_metastasis='';
+
+        var estrogen_receptor_status='';
+        var progesterone_receptor_status='';
+        var her2neu_status='';
+
+       
+        var dimension_range='';
+        var volume_range='';
+        var laterality='';
+        var prior_treatment='';
+
+        var treatment_intent='';
+        var treatment_setting='';
+        var roost_dose_modality='';
+        var additional_therapies='';
+        var type_of_therapy='';
+        var timing_of_therapy='';
+
+        var tcp_outcomes='';
+        var end_point_primary='';
+        var end_point_secondary='';
+
+        var local_control='';
+        var overall_survival='';
+        var quality_of_life='';
+
+
+        var ntcp_outcomes_end_point_primary='';
+        var ntcp_outcomes_end_point_secondy='';
+        var median_follow_up='';
+        var ntcp_outcomes_acute='';
+        var ntcp_outcomes_g1='';
+        var ntcp_outcomes_g2='';
+        var ntcp_outcomes_g3='';
+        var ntcp_outcomes_g4='';
+        var ntcp_outcomes_g5='';
+
+        var modality='';
+        var planing='';
+        var delivery='';
+        var imaging='';
+        var setup='';
+
+        panel_title+='<th width=8%></th>';
+        medical_record_number+='<td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>';
+        age_range+='<td width="15%">Age Range(years old)</td>';
+        weight_range_t+='<td>Weight Range(kg)</td>';
+        gender+='<td>Gender</td>';
+        race+='<td>Race</td>';
+        performance_status+='<td>Performance Status</td>';
+
+        cancer_by_location+='<td width=15%>Cancer by Location</td>';
+        cancer_by_type+='<td width=15%>Cancer by Type</td>';
+        histopathologic_type+='<td width=15%>Histopathologic Type</td>';
+        histopathologic_tumor_grade+='<td width=15%>Histologic/Tumor Grade</td>';
+
+        staging_system_version+='<td width=15%>Staging System/Version</td>';
+        classification+='<td width=15%>Classification</td>';
+        primary_tumor+='<td width=15%>Primary Tumor (T)</td>';
+        regional_lymph_node+='<td width=15%>Regional Lymph Nodes (N)</td>';
+        distant_metastasis+='<td width=15%>Distant Metastasis (M) </td>';
+
+
+        estrogen_receptor_status+='<td width=15%>Estrogen Receptor (ER) Status</td>';
+        progesterone_receptor_status+='<td width=15%>Progesterone Receptor (PR) Status</td>';
+        her2neu_status+='<td width=15%>Her2Neu Status</td>';
+
+        dimension_range+='<td width=15%>Dimension range (cm)</td>';
+        volume_range+='<td width=15%>Volume Range (cc)</td>';
+        laterality+='<td width=15%>Laterality</td>';
+        prior_treatment+='<td width=15%>Prior Treatment</td>';
+
+
+        treatment_intent+='<td width=15%>Treatment Intent</td>';
+        treatment_setting+='<td width=15%>Treatment Setting</td>';
+        roost_dose_modality+='<td width=15%>Boost Dose (Gy) / Modality</td>';
+        additional_therapies+='<td width=15%>Addtional Therapies</td>';
+        type_of_therapy+='<td width=15%>Type of Therapy</td>';
+        timing_of_therapy+='<td width=15%>Timing of Therapy</td>';
+
+
+        tcp_outcomes+='<td width=15%>TCP Outcomes</td>';
+        end_point_primary+='<td width=15%>End Point(primary)</td>';
+        end_point_secondary+='<td width=15%>End Point(secondary)</td>';
+
+        local_control+='<td width=15%>Local Control (LC)</td>';
+        overall_survival+='<td width=15%>Overall Survival (OS)</td>';
+        quality_of_life+='<td width=15%>Quality of Life (QoL)</td>';
+
+        ntcp_outcomes_end_point_primary+='<td width=15%>End Point (primary)</td>';
+        ntcp_outcomes_end_point_secondy+='<td width=15%>End Point (secondary)</td>';
+        median_follow_up+='<td width=15%>Median Follow-up (months)</td>';
+        ntcp_outcomes_acute+='<td width=15%>Acute</td>';
+        ntcp_outcomes_g1+='<td width=15%>G1+</td>';
+        ntcp_outcomes_g2+='<td width=15%>G2+</td>';
+        ntcp_outcomes_g3+='<td width=15%>G3+</td>';
+        ntcp_outcomes_g4+='<td width=15%>G4+</td>';
+        ntcp_outcomes_g5+='<td width=15%>G5+</td>';
+
+
+        modality+='<td width=15%>Modality</td>';
+        planing+='<td width=15%>Planning</td>';
+        delivery+='<td width=15%>Delivery</td>';
+        imaging+='<td width=15%>Imaging</td>';
+        setup+='<td width=15%>Setup</td>';
+
+
+
+        for(i=0;i<obj.data.length;i++){
+
+             panel_title+="<th width=8%>"+obj.data[i].full_name+"</th>";
+             medical_record_number+="<td width=10%>"+obj.data[i].medical_record_number+"</td>";
+
+             age_range+="<td width=5%>"+obj.data[i].age_Range+"</td>";
+             weight_range_t+="<td width=20%>"+obj.data[i].weight_range_t+"</td>";
+
+             gender+="<td width=20%>"+obj.data[i].weight_range_g+"</td>";
+             race+="<td width=20%>"+obj.data[i].weight_range_r+"</td>";
+             performance_status+="<td width=20%>"+obj.data[i].performance_status+"</td>";
+
+             cancer_by_location+="<td width=20%>"+obj.data[i].cancer_by_location+"</td>";
+             cancer_by_type+="<td width=20%>"+obj.data[i].cancer_by_type+"</td>";
+             histopathologic_type+="<td width=20%>"+obj.data[i].histopathologic_type+"</td>";
+             histopathologic_tumor_grade+="<td width=20%>"+obj.data[i].histopathologic_tumor_grade+"</td>";
+
+             staging_system_version+="<td width=20%>"+obj.data[i].staging_system_version+"</td>";
+             classification+="<td width=20%>"+obj.data[i].classification+"</td>";
+             primary_tumor+="<td width=20%>"+obj.data[i].primary_tumor+"</td>";
+             regional_lymph_node+="<td width=20%>"+obj.data[i].regional_lymph_node+"</td>";
+             distant_metastasis+="<td width=20%>"+obj.data[i].distant_metastasis+"</td>";
+
+             estrogen_receptor_status+="<td width=20%>"+obj.data[i].estrogen_receptor_status+"</td>";
+             progesterone_receptor_status+="<td width=20%>"+obj.data[i].progesterone_receptor_status+"</td>";
+             her2neu_status+="<td width=20%>"+obj.data[i].her2neu_status+"</td>";
+
+
+             dimension_range+="<td width=20%>"+obj.data[i].dimension_range+"</td>";
+             volume_range+="<td width=20%>"+obj.data[i].volume_range+"</td>";
+             laterality+="<td width=20%>"+obj.data[i].laterality+"</td>";
+             prior_treatment+="<td width=20%>"+obj.data[i].prior_treatment+"</td>";
+
+
+             treatment_intent+="<td width=20%>"+obj.data[i].treatment_intent+"</td>";
+             treatment_setting+="<td width=20%>"+obj.data[i].treatment_setting+"</td>";
+             roost_dose_modality+="<td width=20%>"+obj.data[i].roost_dose_modality+"</td>";
+             additional_therapies+="<td width=20%>"+obj.data[i].additional_therapies+"</td>";
+             type_of_therapy+="<td width=20%>"+obj.data[i].type_of_therapy+"</td>";
+             timing_of_therapy+="<td width=20%>"+obj.data[i].timing_of_therapy+"</td>";
+
+
+             tcp_outcomes+="<td width=20%>"+obj.data[i].tcp_outcomes+"</td>";
+             end_point_primary+="<td width=20%>"+obj.data[i].end_point_primary+"</td>";
+             end_point_secondary+="<td width=20%>"+obj.data[i].end_point_secondary+"</td>";
+
+
+             local_control+="<td width=20%>"+obj.data[i].local_control+"</td>";
+             overall_survival+="<td width=20%>"+obj.data[i].overall_survival+"</td>";
+             quality_of_life+="<td width=20%>"+obj.data[i].quality_of_life+"</td>";
+
+
+             ntcp_outcomes_end_point_primary+="<td width=20%>"+obj.data[i].ntcp_outcomes_end_point_primary+"</td>";
+             ntcp_outcomes_end_point_secondy+="<td width=20%>"+obj.data[i].ntcp_outcomes_end_point_secondy+"</td>";
+             median_follow_up+="<td width=20%>"+obj.data[i].median_follow_up+"</td>";
+             ntcp_outcomes_acute+="<td width=20%>"+obj.data[i].ntcp_outcomes_acute+"</td>";
+             ntcp_outcomes_g1+="<td width=20%>"+obj.data[i].ntcp_outcomes_g1+"</td>";
+             ntcp_outcomes_g2+="<td width=20%>"+obj.data[i].ntcp_outcomes_g2+"</td>";
+             ntcp_outcomes_g3+="<td width=20%>"+obj.data[i].ntcp_outcomes_g3+"</td>";
+             ntcp_outcomes_g4+="<td width=20%>"+obj.data[i].ntcp_outcomes_g4+"</td>";
+             ntcp_outcomes_g5+="<td width=20%>"+obj.data[i].ntcp_outcomes_g5+"</td>";
+
+
+             modality+="<td width=20%>"+obj.data[i].modality+"</td>";
+             planing+="<td width=20%>"+obj.data[i].planing+"</td>";
+             delivery+="<td width=20%>"+obj.data[i].delivery+"</td>";
+             imaging+="<td width=20%>"+obj.data[i].imaging+"</td>";
+             setup+="<td width=20%>"+obj.data[i].setup+"</td>";
+        }
+         $("#panel_title").html(panel_title);
+         $("#medical_record_number").html(medical_record_number);
+         $("#age_range").html(age_range);
+         $("#weight_range_t").html(weight_range_t);
+         $("#gender").html(gender);
+         $("#race").html(race);
+         $("#performance_status").html(performance_status);
+
+         $("#cancer_by_location").html(cancer_by_location);
+         $("#cancer_by_type").html(cancer_by_type);
+         $("#histopathologic_type").html(histopathologic_type);
+         $("#histopathologic_tumor_grade").html(histopathologic_tumor_grade); 
+
+         $("#staging_system_version").html(staging_system_version); 
+         $("#classification").html(classification); 
+         $("#primary_tumor").html(primary_tumor); 
+         $("#regional_lymph_node").html(regional_lymph_node); 
+         $("#distant_metastasis").html(distant_metastasis); 
+
+         $("#estrogen_receptor_status").html(estrogen_receptor_status); 
+         $("#progesterone_receptor_status").html(progesterone_receptor_status); 
+         $("#her2neu_status").html(her2neu_status); 
+
+         $("#dimension_range").html(dimension_range); 
+         $("#volume_range").html(volume_range); 
+         $("#laterality").html(laterality); 
+         $("#prior_treatment").html(prior_treatment); 
+
+         $("#treatment_intent").html(treatment_intent); 
+         $("#treatment_setting").html(treatment_setting); 
+         $("#roost_dose_modality").html(roost_dose_modality); 
+         $("#additional_therapies").html(additional_therapies); 
+         $("#type_of_therapy").html(type_of_therapy); 
+         $("#timing_of_therapy").html(timing_of_therapy); 
+
+         $("#tcp_outcomes").html(tcp_outcomes); 
+         $("#end_point_primary").html(end_point_primary); 
+         $("#end_point_secondary").html(end_point_secondary); 
+
+
+         $("#local_control").html(local_control); 
+         $("#overall_survival").html(overall_survival); 
+         $("#quality_of_life").html(quality_of_life); 
+
+         $("#ntcp_outcomes_end_point_primary").html(ntcp_outcomes_end_point_primary); 
+         $("#ntcp_outcomes_end_point_secondy").html(ntcp_outcomes_end_point_secondy); 
+         $("#median_follow_up").html(median_follow_up); 
+         $("#ntcp_outcomes_acute").html(ntcp_outcomes_acute); 
+         $("#ntcp_outcomes_g1").html(ntcp_outcomes_g1); 
+         $("#ntcp_outcomes_g2").html(ntcp_outcomes_g2); 
+         $("#ntcp_outcomes_g3").html(ntcp_outcomes_g3); 
+         $("#ntcp_outcomes_g4").html(ntcp_outcomes_g4); 
+         $("#ntcp_outcomes_g5").html(ntcp_outcomes_g5); 
+
+         $("#modality").html(modality); 
+         $("#planing").html(planing); 
+         $("#delivery").html(delivery); 
+         $("#imaging").html(imaging); 
+         $("#setup").html(setup); 
+
+      },
+      error: function(error) {
+            console.log(error);
+          }
+      });
+
   });
 </script>
 </body>

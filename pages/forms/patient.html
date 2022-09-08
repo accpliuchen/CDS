@@ -6,7 +6,29 @@
   <title>AdminLTE 3 | jsGrid</title>
 
   <!-- Google Font: Source Sans Pro -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href="../../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Bootstrap4 Duallistbox -->
+  <link rel="stylesheet" href="../../plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+  <!-- BS Stepper -->
+  <link rel="stylesheet" href="../../plugins/bs-stepper/css/bs-stepper.min.css">
+  <!-- dropzonejs -->
+  <link rel="stylesheet" href="../../plugins/dropzone/min/dropzone.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
 </head>
 <body class="hold-transition">
 
@@ -18,20 +40,54 @@
 
     <div class="row g-5">
       <div class="col-md-7 col-lg-8">
-        <form action="/protocol_input" method="POST">
+        <form id="detailsForm" name="detailsForm">
           <hr class="my-4">
+
+          <h4 class="mb-3">Patient Identifier</h4>
+          <div class="row gy-3">
+
+            <div class="col-12">
+              <label class="form-label">Full Name</label>
+               <input type="text" class="form-control" name="full_name" id="full_name" placeholder="">
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Medical Record Number</label>
+               <input type="text" class="form-control" name="medical_record_number" id="medical_record_number" placeholder="">
+            </div>
+
+             <div class="col-12">
+              <label>Date:</label>
+              <div class="input-group date" id="reservationdate" data-target-input="nearest">
+              <input type="text"  name="dob" id="dob" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+              <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+              </div>
+              </div>
+            </div>
+
+             <div class="col-12">
+              <label class="form-label">Attending(Physician)</label>
+               <input type="text" class="form-control" name="attending" id="attending" placeholder="">
+            </div>
+
+            <div class="col-12">Hospital</label>
+               <input type="text" class="form-control" name="hoospital" id="hoospital" placeholder="">
+            </div>
+
+          </div>
 
           <h4 class="mb-3">Patient Characteristics</h4>
           <div class="row gy-3">
 
             <div class="col-12">
               <label class="form-label">Age Range(years old)</label>
-              <select class="form-select" name="treatment_site" placeholder="">
+              <select class="form-select" name="age_Range" id="age_Range" placeholder="">
                   <option value="" selected></option>
-                  <option>0-22</option>
-                  <option>22-50</option>
-                  <option>51-70</option>
-                  <option>>70</option>
+                  <option value="0-22">0-22</option>
+                  <option value="22-50">22-50</option>
+                  <option value="51-70">51-70</option>
+                  <option value="70-100">more than 70</option>
               </select>
             </div>
 
@@ -39,39 +95,39 @@
               <label class="form-label">Weight Range(kg)</label>
               <div class="input-group mb-3">
                 <span class="input-group-text">T</span>
-                <select class="form-select" name="T">
+                <select class="form-select" name="weight_range_t" id="weight_range_t">
                   <option value="" selected></option>
-                  <option>0-50</option>
-                  <option>51-100</option>
-                  <option>>100</option>
+                  <option value="0-50">0-50</option>
+                  <option value="51-100">51-100</option>
+                  <option value="100-500">more than 100</option>
                 </select>
                 <span class="input-group-text">Gender</span>
-                <select class="form-select" name="N">
+                <select class="form-select" name="weight_range_g" id="weight_range_g">
                   <option value="" selected></option>
-                  <option>Male</option>
-                  <option>Female</option>
-                  <option>Mixed</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="mixed">Mixed</option>
                 </select>
                 <span class="input-group-text">Race</span>
-                <select class="form-select" name="M">
+                <select class="form-select" name="weight_range_r" id="weight_range_r">
                   <option value="" selected></option>
-                  <option>African</option>
-                  <option>Asian</option>
-                  <option>Latino</option>
-                  <option>White</option>
-                  <option>Mixed</option>
+                  <option value="african">African</option>
+                  <option value="asian">Asian</option>
+                  <option value="latino">Latino</option>
+                  <option value="white">White</option>
+                  <option value="mixed">Mixed</option>
                 </select>
               </div>
             </div>
 
             <div class="col-md-8">
               <label  class="form-label">Performance Status</label>
-              <select class="form-select" name="risk_group" >
+              <select class="form-select" name="performance_status" id="performance_status" >
                 <option value="" selected></option>
-                <option>Very Good</option>
-                <option>Good</option>
-                <option>Poor</option>
-                <option>Very Poor</option>
+                <option value="verggood">Very Good</option>
+                <option value="good">Good</option>
+                <option value="poor">Poor</option>
+                <option value="verypoor">Very Poor</option>
               </select>
             </div>
 
@@ -83,7 +139,7 @@
 
             <div class="col-sm-6">
               <label  class="form-label">Cancer by Location</label>
-              <select class="form-select" name="cancerbyLocaton"  id="cancerbyLocaton">
+              <select class="form-select" name="cancer_by_location"  id="cancer_by_location">
                 <option value="" selected></option>
                 <option value=Breast>Breast</option>
                 <option value=Digestive>Digestive</option>
@@ -103,35 +159,35 @@
 
             <div class="col-sm-6">
               <label class="form-label">Cancer by Type</label>
-              <select class="form-select" name="cancerbyType"  id="cancerbyType">
+              <select class="form-select" name="cancer_by_type"  id="cancer_by_type">
                 <option value="" selected></option>
                 <option value="positive">Positive</option>
                 <option value="negative">Negative</option>
-                <option>Positive/Negative</option>
+                <option value="Positive/Negative">Positive/Negative</option>
               </select>
             </div>
 
             <div class="col-sm-6">
               <label class="form-label">Histopathologic Type</label>
-              <select class="form-select" name="margin" >
+              <select class="form-select" name="histopathologic_type"  id="histopathologic_type" >
                 <option value="" selected></option>
-                <option>Carcinoma</option>
-                <option>Sarcoma</option>
-                <option>Myeloma</option>
-                <option>Leukemia</option>
-                <option>Lymphoma</option>
-                <option>Mixed Types</option>
+                <option value="carcinoma">Carcinoma</option>
+                <option value="sarcoma">Sarcoma</option>
+                <option value="myeloma">Myeloma</option>
+                <option value="leukemia">Leukemia</option>
+                <option value="lymphoma">Lymphoma</option>
+                <option value="mixedtypes">Mixed Types</option>
               </select>
             </div>
 
             <div class="col-sm-6">
               <label class="form-label">Histologic/Tumor Grade</label>
-              <select class="form-select" name="margin" >
+              <select class="form-select" name="histopathologic_tumor_grade"  id="histopathologic_tumor_grade" >
                 <option value="" selected></option>
-                <option>G1 (low grade)</option>
-                <option>G2 (intermediate grade)</option>
-                <option>G3 (high grade)</option>
-                <option>GX (undetermined grade)</option>
+                <option value="low_grade">G1 (low grade)</option>
+                <option value="intermediate_grade">G2 (intermediate grade)</option>
+                <option value="high_grade">G3 (high grade)</option>
+                <option value="undetermined_grade">GX (undetermined grade)</option>
               </select>
             </div>
 
@@ -144,73 +200,70 @@
 
             <div class="col-md-4">
               <label  class="form-label">Staging System/Version</label>
-              <select class="form-select" name="recurrence" >
+              <select class="form-select" name="staging_system_version" id="staging_system_version">
                 <option value="" selected></option>
-                <option>AJCC 7th ED, 2010</option>
-                <option>AJCC 8TH ED, 2017</option>
+                <option value="7th">AJCC 7th ED, 2010</option>
+                <option value="8th">AJCC 8TH ED, 2017</option>
               </select>
             </div>
 
             <div class="col-sm-4">
               <label  class="form-label">Classification</label>
-              <select class="form-select" name="recurrence" >
+              <select class="form-select" name="classification" id="classification" >
                 <option value="" selected></option>
-                <option>Clinical</option>
-                <option>Pathologic</option>
+                <option value="clinical">Clinical</option>
+                <option value="pathologic">Pathologic</option>
               </select>
             </div>
 
             <div class="col-sm-6">
-              <label  class="form-label"><h6>Clinical stage</h6></label>
+              <label  class="form-label"><h6>Clinical stage</h6></label><br/>
 
-              <div class="col-sm-6">
                 <label class="form-label">Primary Tumor (T)</label>
-                <select class="form-select" name="recurrence" >
+                <select class="form-select" name="primary_tumor" id="primary_tumor" >
                   <option value="" selected></option>
-                  <option>TX</option>
-                  <option>T0</option>
-                  <option>Tis(DICS)</option>
-                  <option>Tis(Paget)</option>
-                  <option>T1</option>
-                  <option>T1mi</option>
-                  <option>T1a</option>
-                  <option>T1b</option>
-                  <option>T1c</option>
-                  <option>T2</option>
-                  <option>T3</option>
-                  <option>T4</option>
-                  <option>T4a</option>
-                  <option>T4b</option>
-                  <option>T4c</option>
-                  <option>T4d</option>
+                  <option value="tx">TX</option>
+                  <option value="t0">T0</option>
+                  <option value="dics">Tis(DICS)</option>
+                  <option value="paget">Tis(Paget)</option>
+                  <option value="t1">T1</option>
+                  <option value="t1mi">T1mi</option>
+                  <option value="t1a">T1a</option>
+                  <option value="t1b">T1b</option>
+                  <option value="t1c">T1c</option>
+                  <option value="t2">T2</option>
+                  <option value="t3">T3</option>
+                  <option value="t4">T4</option>
+                  <option value="t4a">T4a</option>
+                  <option value="t4b">T4b</option>
+                  <option value="t4c">T4c</option>
+                  <option value="t4d">T4d</option>
                 </select>
-              </div>
 
 
-              <div class="col-sm-6">
                 <label class="form-label">Regional Lymph Nodes (N)</label>
-                <select class="form-select" name="recurrence" >
+                <select class="form-select" name="regional_lymph_node" id="regional_lymph_node" >
                   <option value="" selected></option>
-                  <option>cNX</option>
-                  <option>cN0</option>
-                  <option>cN1</option>
-                  <option>cN1mi</option>
-                  <option>cN2</option>
-                  <option>cN2a</option>
-                  <option>cN2b</option>
-                  <option>cN3</option>
-                  <option>cN3a</option>
-                  <option>cN3b</option>
-                  <option>cN3c</option>
+                  <option value="cnx">cNX</option>
+                  <option value="cn0">cN0</option>
+                  <option value="cn1">cN1</option>
+                  <option value="cn1mi">cN1mi</option>
+                  <option value="cn2">cN2</option>
+                  <option value="cn2a">cN2a</option>
+                  <option value="cn2b">cN2b</option>
+                  <option value="cn3">cN3</option>
+                  <option value="cn3a">cN3a</option>
+                  <option value="cn3b">cN3b</option>
+                  <option value="cn3c">cN3c</option>
                 </select>
-              </div>
+             
 
               <label class="form-label">Distant Metastasis (M)</label>
-              <select class="form-select" name="recurrence" >
+              <select class="form-select" name="distant_metastasis" id="distant_metastasis" >
                 <option value="" selected></option>
-                <option>M0</option>
-                <option>cM0(i+)</option>
-                <option>M1</option>
+                <option value="m0">M0</option>
+                <option value="cMo(i+)">cM0(i+)</option>
+                <option value="m1">M1</option>
               </select>
             </div>
 
@@ -221,29 +274,29 @@
           <div class="row gy-3">
             <div class="col-12">
               <label for="performance_status" class="form-label">Estrogen Receptor (ER) Status</label>
-               <select class="form-select" name="margin" >
+               <select class="form-select" name="estrogen_receptor_status" id="estrogen_receptor_status">
                 <option value="" selected></option>
-                <option>Positive</option>
-                <option>Negative</option>
+                <option value="positive">Positive</option>
+                <option value="negative">Negative</option>
               </select>
             </div>
 
             <div class="col-md-4">
               <label for="age" class="form-label">Progesterone Receptor (PR) Status</label>
-              <select class="form-select" name="margin" >
+              <select class="form-select" name="progesterone_receptor_status" id="progesterone_receptor_status" >
                 <option value="" selected></option>
-                <option>Positive</option>
-                <option>Negative</option>
+                <option value="positive">Positive</option>
+                <option value="negative">Negative</option>
               </select>
             </div>
 
             <div class="col-md-4">
               <label for="weight" class="form-label">Her2Neu Status</label>
               <div class="input-group mb-3">
-              <select class="form-select" name="margin" >
+              <select class="form-select" name="her2neu_status" id="her2neu_status">
                 <option value="" selected></option>
-                <option>Positive</option>
-                <option>Negative</option>
+                <option value="positive">Positive</option>
+                <option value="negative">Negative</option>
               </select>
               </div>
             </div>
@@ -256,17 +309,17 @@
 
             <div class="col-md-3">
               <label for="treatment_intent" class="form-label">Dimension range (cm)</label>
-              <input type="text" class="form-control" name="DOI" placeholder="">
+              <input type="text" class="form-control" name="dimension_range" id="dimension_range" placeholder="">
             </div>
 
             <div class="col-md-3">
               <label for="retreat" class="form-label">Volume Range (cc)</label>
-              <input type="text" class="form-control" name="DOI" placeholder="">
+              <input type="text" class="form-control" name="volume_range" id="volume_range" placeholder="">
             </div>
 
             <div class="col-md-3">
               <label for="prior_RT" class="form-label">Laterality</label>
-              <select multiple class="form-select" name="prior_RT" >
+              <select  class="form-select" name="laterality" id="laterality" >
                 <option value=""></option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
@@ -276,14 +329,14 @@
 
             <div class="col-md-3">
               <label for="surgery" class="form-label">Prior Treatment</label>
-              <select  class="form-select" name="surgery" >
+              <select  class="form-select" name="prior_treatment" id="prior_treatment">
                <option value=""></option>
-                <option>No</option>
-                <option>Surgery</option>
-                <option>Radiation Therapy</option>
-                <option>Chemotherapy</option>
-                <option>Immunotherapy</option>
-                <option>Harmone Therapy</option>
+                <option value="no">No</option>
+                <option value="surgery">Surgery</option>
+                <option value="radiation_therapy">Radiation Therapy</option>
+                <option value="chemotherapy">Chemotherapy</option>
+                <option value="immunotherapy">Immunotherapy</option>
+                <option value="harmone_therapy">Harmone Therapy</option>
               </select>
             </div>
 
@@ -295,54 +348,54 @@
           <div class="row gy-3">
             <div class="col-12">
              <label for="prior_RT" class="form-label">Treatment Intent</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="treatment_intent" id="treatment_intent" >
                 <option value="" selected></option>
-                <option>Curative</option>
-                <option>Palliative</option>
+                <option value="curative">Curative</option>
+                <option value="palliative">Palliative</option>
               </select>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-7">
               <label for="base_dose_fraction" class="form-label">Treatment Setting</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="treatment_setting" id="treatment_setting" >
                 <option value="" selected></option>
-                <option>Associated with the cancer type selected, e.g., Prostate</option>
-                <option>Prostate Bed</option>
-                <option>Prostate+Pelvis</option>
+                <option value="associated">Associated with the cancer type selected, e.g., Prostate</option>
+                <option value="prostate_bed">Prostate Bed</option>
+                <option value="prostate_pelvis">Prostate+Pelvis</option>
               </select>
             </div>
 
             <div class="col-md-7">
               <label for="base_dose_modality" class="form-label">Boost Dose (Gy) / Modality</label>
-              <input type="text" class="form-control" name="RI_boost_dose_modality" placeholder="xx Gy/(Photon, Electron, LDR, HDR, Proton)">
+              <input type="text" class="form-control" name="roost_dose_modality" id="roost_dose_modality">
             </div>
 
             <div class="col-12">
               <label for="other_therapies" class="form-label">Addtional Therapies</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="additional_therapies" id="additional_therapies">
                 <option value="" selected></option>
-                <option>Yes</option>
-                <option>No</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
               </select>
             </div>
 
             <div class="col-12">
               <label for="other_therapies" class="form-label">Type of Therapy</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="type_of_therapy" id="type_of_therapy">
                 <option value="" selected></option>
-                <option>Chemotherapy</option>
-                <option>Immunotherapy</option>
-                <option>Harmone Therapy</option>
+                <option value="chemotherapy" selected>Chemotherapy</option>
+                <option value="immunotherapy">Immunotherapy</option>
+                <option value="harmoneTherapy">Harmone Therapy</option>
               </select>
             </div>
 
             <div class="col-12">
               <label for="other_therapies" class="form-label">Timing of Therapy</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="timing_of_therapy" id="timing_of_therapy">
                 <option value="" selected></option>
-                <option>Neoadjuvant</option>
-                <option>Concurrent</option>
-                <option>Adjuvant</option>
+                <option value="neoadjuvant">Neoadjuvant</option>
+                <option value="concurrent">Concurrent</option>
+                <option value="adjuvant">Adjuvant</option>
               </select>
             </div>
 
@@ -353,12 +406,12 @@
           <div class="row gy-3">
 
             <div class="col-12">
-              <input type="text" class="form-control" name="regimen_II" placeholder="">
+              <input type="text" class="form-control" name="tcp_outcomes" id="tcp_outcomes"  placeholder="">
             </div>
 
             <div class="col-md-5">
               <label for="base_dose_fraction" class="form-label">End Point(primary)</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="end_point_primary" id="end_point_primary" >
                 <option value="" selected></option>
                 <option></option>
                 <option></option>
@@ -368,7 +421,7 @@
 
             <div class="col-md-7">
               <label for="base_dose_modality" class="form-label">End Point(secondary)</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="end_point_secondary" id="end_point_secondary" >
                 <option value="" selected></option>
                 <option></option>
                 <option></option>
@@ -384,15 +437,15 @@
           <div class="row gy-3">
             <div class="col-md-5">
               <label for="RII_TCP_median_follow_up" class="form-label">Local Control (LC)</label>
-              <input type="text" class="form-control" name="local_control" placeholder="xxx">
+              <input type="text" class="form-control" name="local_control" id="local_control">
             </div>
             <div class="col-md-3">
               <label for="RII_LC" class="form-label">Overall Survival (OS)</label>
-              <input type="text" class="form-control" name="overall_survival" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="overall_survival" id="overall_survival">
             </div>
             <div class="col-md-4">
               <label for="RII_OS" class="form-label">Quality of Life (QoL)</label>
-              <input type="text" class="form-control" name="quality_of_life" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="quality_of_life"  id="quality_of_life">
             </div>
           </div>
 
@@ -402,39 +455,39 @@
           <div class="row gy-3">
             <div class="col-md-5">
               <label for="RI_TCP_median_follow_up" class="form-label">End Point (primary)</label>
-              <input type="text" class="form-control" name="RI_TCP_median_follow_up" placeholder="xxx">
+              <input type="text" class="form-control" name="ntcp_outcomes_end_point_primary" id="ntcp_outcomes_end_point_primary">
             </div>
             <div class="col-md-3">
               <label for="RI_LC" class="form-label">End Point (secondary)</label>
-              <input type="text" class="form-control" name="RI_LC" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="ntcp_outcomes_end_point_secondy" id="ntcp_outcomes_end_point_secondy">
             </div>
             <div class="col-md-4">
               <label for="RI_OS" class="form-label">Median Follow-up (months)</label>
-              <input type="text" class="form-control" name="RI_OS" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="median_follow_up" id="median_follow_up">
             </div>
             <div class="col-md-3">
               <label for="RI_PFS" class="form-label">Acute</label>
-              <input type="text" class="form-control" name="RI_PFS" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="ntcp_outcomes_acute" id="ntcp_outcomes_acute">
             </div>
             <div class="col-md-3">
               <label for="RI_bPFS" class="form-label">G1+</label>
-              <input type="text" class="form-control" name="RI_bPFS" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="ntcp_outcomes_g1" id="ntcp_outcomes_g1">
             </div>
             <div class="col-md-3">
               <label for="RI_DFS" class="form-label">G2+</label>
-              <input type="text" class="form-control" name="RI_DFS" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="ntcp_outcomes_g2" id="ntcp_outcomes_g2">
             </div>
             <div class="col-md-3">
               <label for="RI_FFS" class="form-label">G3+</label>
-              <input type="text" class="form-control" name="RI_FFS" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="ntcp_outcomes_g3" id="ntcp_outcomes_g3">
             </div>
             <div class="col-md-3">
               <label for="RI_MFS" class="form-label">G4+</label>
-              <input type="text" class="form-control" name="RI_MFS" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="ntcp_outcomes_g4" id="ntcp_outcomes_g4">
             </div>
             <div class="col-md-3">
               <label for="RI_MFS" class="form-label">G5</label>
-              <input type="text" class="form-control" name="RI_CSS" placeholder="">
+              <input type="text" class="form-control" name="ntcp_outcomes_g5" id="ntcp_outcomes_g5">
             </div>
           </div>
 
@@ -446,10 +499,10 @@
               <label for="modality" class="form-label">Modality</label>
               <select  class="form-select" name="modality" id="modality" >
                 <option value="" selected></option>
-                <option>Photon</option>
-                <option>Proton</option>
-                <option>Electron</option>
-                <option>Brachytherapy</option>
+                <option value="photon">Photon</option>
+                <option value="proton">Proton</option>
+                <option value="electron">Electron</option>
+                <option value="brachytherapy">Brachytherapy</option>
               </select>
             </div>
 
@@ -458,12 +511,12 @@
               <label for="planning" class="form-label">Planning</label>
                <select  class="form-select" name="planing" id="planing">
                 <option value="" selected></option>
-                <option>3D</option>
-                <option>IMRT</option>
-                <option>VMAT</option>
-                <option>SRS</option>
-                <option>SBRT</option>
-                <option>Adaptive</option>
+                <option value="3d">3D</option>
+                <option value="imrt">IMRT</option>
+                <option value="vmat">VMAT</option>
+                <option value="srs">SRS</option>
+                <option value="sbrt">SBRT</option>
+                <option value="adaptive">Adaptive</option>
               </select>
             </div>
 
@@ -472,13 +525,13 @@
               <label for="delivery" class="form-label">Delivery</label>
               <select  class="form-select" name="delivery" id="delivery">
                 <option value="" selected></option>
-                <option>Linac</option>
-                <option>MR-Linac</option>
-                <option>CyberKnife</option>
-                <option>Gamma Knife</option>
-                <option>Tomo</option>
-                <option>LDR</option>
-                <option>HDR</option>
+                <option value="linac">Linac</option>
+                <option value="mr_linac">MR-Linac</option>
+                <option value="cyberknife">CyberKnife</option>
+                <option value="grmma_knife">Gamma Knife</option>
+                <option value="tomo">Tomo</option>
+                <option value="ldr">LDR</option>
+                <option value="hdr">HDR</option>
               </select>
             </div>
 
@@ -486,11 +539,11 @@
               <label for="imaging" class="form-label">Imaging</label>
               <select  class="form-select" name="imaging" id="imaging" >
                 <option value="" selected></option>
-                <option>kV</option>
-                <option>CBCT</option>
-                <option>MV</option>
-                <option>MR</option>
-                <option>SGRT</option>
+                <option value="kv">kV</option>
+                <option value="cbct">CBCT</option>
+                <option value="mv">MV</option>
+                <option value="mr">MR</option>
+                <option value="sgrt">SGRT</option>
               </select>
             </div>
 
@@ -498,10 +551,10 @@
               <label for="setup" class="form-label">Setup</label>
                <select  class="form-select" name="setup" id="setup" >
                 <option value="" selected></option>
-                <option>Fiducials</option>
-                <option>Bolus</option>
-                <option>Spacer</option>
-                <option>Rectum Balloon</option>
+                <option value="fiducials">Fiducials</option>
+                <option value="bolus">Bolus</option>
+                <option value="spacer">Spacer</option>
+                <option value="rectum_balloon">Rectum Balloon</option>
               </select>
             </div>
             
@@ -512,7 +565,7 @@
           <hr class="my-4">
 
           <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-dark" type="submit" value="add">Add</button>
+            <button id="patientform"  class="btn btn-dark" type="button" value="add">Add</button>
           </div>
 
           <hr class="my-4">
@@ -530,12 +583,92 @@
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- jsGrid -->
-<script src="../../plugins/jsgrid/demos/db.js"></script>
-<script src="../../plugins/jsgrid/jsgrid.min.js"></script>
+<!-- Select2 -->
+<script src="../../plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="../../plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
+<script src="../../plugins/moment/moment.min.js"></script>
+<script src="../../plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- date-range-picker -->
+<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="../../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="../../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- BS-Stepper -->
+<script src="../../plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<!-- dropzonejs -->
+<script src="../../plugins/dropzone/min/dropzone.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 
+<!-- Page specific script -->
 
+<script>
+  $(document).ready(function () {
+
+    //Date picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+
+    $("#cancer_by_location").change(function () {
+        var val = $(this).val();
+        
+        if (val == "Breast") {
+            $("#cancer_by_type").html("<option value='BreastCancer'>Breast Cancer</option>");
+        } else if (val == "Digestive") {
+            $("#cancer_by_type").html("<option value='Anal Cancer'>Anal Cancer</option><option value='Colon Cancer'>Colon Cancer</option><option value='Esophageal Cancer'>Esophageal Cancer</option><option value='Liver Cancer'>Liver Cancer</option><option value='Pancreatic Cancer'>Pancreatic Cancer</option><option value='Rectal Cancer'>Rectal Cancer</option><option value='Stomach Cancer'>Stomach Cancer</option>");
+        } else if (val == "Endocrine") {
+            $("#cancer_by_type").html("<option value='Pituitary Tumor'>Pituitary Tumor</option><option value='Thyroid Cancer'>Thyroid Cancer</option>");
+        } else if (val == "Eye") {
+            $("#cancer_by_type").html("<option value=''></option>");
+        } else if (val == "Genitourinary") {
+            $("#cancer_by_type").html("<option value='Bladder Cancer'>Bladder Cancer</option><option value='Kidney Cancer'>Kidney Cancer</option><option value='Penile Cancer'>Penile Cancer</option><option value='Prostate Cancer'>Prostate Cancer</option><option value='Testicular Cancer'>Testicular Cancer</option><option value='Urethral Cancer'>Urethral Cancer</option>");
+        } else if (val == "GermCell") {
+            $("#cancer_by_type").html("<option value=''></option>");
+        }else if (val == "Gynecologic") {
+            $("#cancer_by_type").html("<option value='Cervical Cancer'>Cervical Cancer</option><option value='Endometrial Cancer'>Endometrial Cancer</option><option value='Vaginal Cancer'>Vaginal Cancer</option><option value='Vulvar Cancer'>Vulvar Cancer</option>");
+        }else if (val == "HeadandNeck") {
+            $("#cancer_by_type").html("<option value='Hypopharyngeal Cancer'>Hypopharyngeal Cancer</option><option value='Laryngeal Cancer'>Laryngeal Cancer</option><option value='Nasopharyngeal Cancer'>Nasopharyngeal Cancer</option><option value='Oral Cavity Cancer'>Oral Cavity Cancer</option><option value='Oropharyngeal Cancer'>Oropharyngeal Cancer</option><option value='Parathyroid Cancer'>Parathyroid Cancer</option><option value='Pharyngeal Cancer'>Pharyngeal Cancer</option><option value='Salivary Gland Cancer'>Salivary Gland Cancer</option><option value='Throat Cancer'>Throat Cancer</option><option value='Thyroid Cancer'>Thyroid Cancer</option>");
+        }else if (val == "Hematologic") {
+            $("#cancer_by_type").html("<option value='Leukemia'>Leukemia</option><option value='Lymphoma'>Lymphoma</option>");
+        }else if (val == "Musculoskeletal") {
+            $("#cancer_by_type").html("<option value='Bone Cancer'>Bone Cancer</option><option value='Soft Tissue Sarcoma'>Soft Tissue Sarcoma</option>");
+        }else if (val == "Neurologic") {
+            $("#cancer_by_type").html("<option value='Brain Tumor'>Brain Tumor</option><option value='Neuroblastoma'>Neuroblastoma</option><option value='Pituitary Tumor'>Pituitary Tumor</option><option value='Primary Central Nervous System (CNS) Lymphoma'>Primary Central Nervous System (CNS) Lymphoma</option><option value='CNS Lymphoma'>CNS Lymphoma</option><option value='Spinal Cancer'>Spinal Cancer</option>");
+        }else if (val == "Neurologic") {
+            $("#cancer_by_type").html("<option value='Brain Tumor'>Brain Tumor</option><option value='Neuroblastoma'>Neuroblastoma</option><option value='Pituitary Tumor'>Pituitary Tumor</option><option value='Primary Central Nervous System (CNS) Lymphoma'>Primary Central Nervous System (CNS) Lymphoma</option><option value='CNS Lymphoma'>CNS Lymphoma</option><option value='Spinal Cancer'>Spinal Cancer</option>");
+        }else if (val == "Thoracic") {
+            $("#cancer_by_type").html("<option value='Lung Cancer, Non-Small Cell'>Lung Cancer, Non-Small Cell</option><option value='Lung Cancer, Small Cell'>Lung Cancer, Small Cell</option>");
+        }else if (val == "Skin") {
+            $("#cancer_by_type").html("<option value='Melanoma'>Melanoma</option><option value='Skin Cancer'>Skin Cancer</option>");
+        }
+    });
+
+
+    $('#patientform').click(function() {
+
+         $.ajax({
+          url: 'http://127.0.0.1:5000/patient_save',
+          data: $('#detailsForm').serialize(),
+          type: 'POST',
+          headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+          success: function(response) {
+
+            if(response!='' && response=='1'){
+              alert('added successed');
+            }
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      });
+  });
+</script>
 </body>
 </html>

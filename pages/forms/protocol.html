@@ -19,35 +19,35 @@
     <div class="row g-5">
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Study/Protocol</h4>
-        <form action="/protocol_input" method="POST">
+        <form id="detailsForm" name="detailsForm">
           <div class="row g-3">
             <div class="col-sm-6">
               <label class="form-label">Study Name</label>
-              <input type="text" class="form-control" name="study_name" placeholder="">
+              <input type="text" class="form-control" name="study_name" id="study_name" placeholder="">
             </div>
 
             <div class="col-sm-6">
               <label class="form-label">Protocol Name</label>
-              <input type="text" class="form-control" name="description" placeholder="">
+              <input type="text" class="form-control" name="protocol_name" id="protocol_name" placeholder="">
             </div>
 
             <div class="col-sm-6">
               <label class="form-label">Publish Date</label>
-              <input type="text" class="form-control" name="source" placeholder="Month/Year">
+              <input type="text" class="form-control" name="publish_date" id="publish_date" placeholder="Month/Year">
             </div>
 
             <div class="col-sm-6">
               <label  class="form-label">Study Type</label>
-              <select multiple class="form-select" name="study_type" placeholder="">
+              <select multiple class="form-select" name="study_type" id="study_type" placeholder="">
                 <option value="" selected></option>
-                <option>Retrospective</option>
-                <option>Prospective</option>
-                <option>Single Institution</option>
-                <option>Multi-center</option>
-                <option>Meta-analysis</option>
-                <option>Trials: phase I</option>
-                <option>Trials: phase II</option>
-                <option>Trials: phase III</option>
+                <option value="Retrospective">Retrospective</option>
+                <option value="Prospective">Prospective</option>
+                <option value="Single Institution">Single Institution</option>
+                <option value="Multi-center">Multi-center</option>
+                <option value="Meta-analysis">Meta-analysis</option>
+                <option value="Trials: phase I" >Trials: phase I</option>
+                <option value="Trials: phase II" >Trials: phase II</option>
+                <option value="Trials: phase III">Trials: phase III</option>
               </select>
               <span class="help-block">
                 <small>To select multiple options, Windows users press Ctrl, Mac users press command</small>
@@ -57,15 +57,15 @@
 
             <div class="col-md-3">
               <label class="form-label">Analysis Type</label>
-              <select multiple class="form-select" name="analysis_type" placeholder="">
+              <select multiple class="form-select" name="analysis_type" id="analysis_type" placeholder="">
                 <option value="" selected></option>
-                <option>Actuarial</option>
-                <option>Crude</option>
-                <option>Estimated</option>
-                <option>Kaplan Meier</option>
-                <option>Modeling</option>
-                <option>Controlled</option>
-                <option>Randomized</option>
+                <option value="Actuarial">Actuarial</option>
+                <option value="Crude">Crude</option>
+                <option value="Estimated">Estimated</option>
+                <option value="Kaplan Meier">Kaplan Meier</option>
+                <option value="Modeling">Modeling</option>
+                <option value="Controlled">Controlled</option>
+                <option value="Randomized">Randomized</option>
               </select>
 
               <span class="help-block">
@@ -76,48 +76,48 @@
 
             <div class="col-md-3">
               <label class="form-label">Number of Patients</label>
-              <select class="form-select" name="study_type" placeholder="">
-                <option>0-50</option>
-                <option>50-100</option>
-                <option>100-200</option>
-                <option>200-500</option>
-                <option>>500</option>
+              <select class="form-select" name="number_of_patients" id="number_of_patients" placeholder="">
+                <option value="0-50">0-50</option>
+                <option value="50-100">50-100</option>
+                <option value="100-200">100-200</option>
+                <option value="200-500">200-500</option>
+                <option value=">500">>500</option>
               </select>
             </div>
 
             <div class="col-md-6">
               <label class="form-label">Study Institution</label>
-              <input type="text" class="form-control" name="description" placeholder="First author's institution">
+              <input type="text" class="form-control" name="study_institution" id="study_institution"  placeholder="study institution">
             </div>
 
             <div class="col-md-6">
               <label  class="form-label">Country of Study</label>
-              <select class="form-select" name="country" placeholder="">
+              <select class="form-select" name="country_of_study" id="country_of_study" placeholder="">
                 <option value="" selected></option>
-                <option>USA</option>
-                <option>Canada</option>
-                <option>England</option>
-                <option>Australia</option>
-                <option>China</option>
-                <option>India</option>
-                <option>Sweden</option>
-                <option>Norway</option>
-                <option>Denmarks</option>
-                <option>Nethelands</option>
-                <option>Italy</option>
-                <option>Brazil</option>
-                <option>Multi-nation</option>
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+                <option value="England">England</option>
+                <option value="Australia">Australia</option>
+                <option value="China">China</option>
+                <option value="India">India</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Norway">Norway</option>
+                <option value="Denmarks">Denmarks</option>
+                <option value="Nethelands">Nethelands</option>
+                <option value="Italy">Italy</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Multi-nation">Multi-nation</option>
               </select>
             </div>
 
             <div class="col-sm-6">
               <label class="form-label">Publication unique ID(PMID)</label>
-              <input type="text" class="form-control" name="description" placeholder="">
+              <input type="text" class="form-control" name="publication_unique_id" id="publication_unique_id" placeholder="">
             </div>
 
             <div class="col-12">
               <label class="form-label">Full Study PDF (DOI number)</label>
-              <input type="text" class="form-control" name="DOI" placeholder="">
+              <input type="text" class="form-control" name="doi" id="doi" placeholder="">
             </div>
           </div>
 
@@ -128,12 +128,12 @@
 
             <div class="col-12">
               <label class="form-label">Age Range(years old)</label>
-              <select multiple class="form-select" name="treatment_site" placeholder="">
+              <select multiple class="form-select" name="age_range" id="age_range" placeholder="">
                   <option value="" selected></option>
-                  <option>0-22</option>
-                  <option>22-50</option>
-                  <option>51-70</option>
-                  <option>>70</option>
+                  <option value="0-22">0-22</option>
+                  <option value="22-50">22-50</option>
+                  <option value="51-70">51-70</option>
+                  <option value="70-100">more than 70</option>
               </select>
               <span class="help-block">
                 <small>To select multiple options, Windows users press Ctrl, Mac users press command</small>
@@ -144,27 +144,27 @@
               <label class="form-label">Weight Range(kg)</label>
               <div class="input-group mb-3">
                 <span class="input-group-text">T</span>
-                <select multiple class="form-select" name="T">
+                <select multiple class="form-select" name="weight_range_t" id="weight_range_t">
                   <option value="" selected></option>
-                  <option>0-50</option>
-                  <option>51-100</option>
-                  <option>>100</option>
+                  <option value="0-50">0-50</option>
+                  <option value="51-100">51-100</option>
+                  <option value="100-500">more than 100</option>
                 </select>
                 <span class="input-group-text">Gender</span>
-                <select class="form-select" name="N">
+                <select class="form-select" name="weight_range_n" id="weight_range_n">
                   <option value="" selected></option>
-                  <option>Male</option>
-                  <option>Female</option>
-                  <option>Mixed</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="mixed">Mixed</option>
                 </select>
                 <span class="input-group-text">Race</span>
-                <select multiple class="form-select" name="M">
+                <select multiple class="form-select" name="weight_range_m" id="weight_range_m">
                   <option value="" selected></option>
-                  <option>African</option>
-                  <option>Asian</option>
-                  <option>Latino</option>
-                  <option>White</option>
-                  <option>Mixed</option>
+                  <option value="african">African</option>
+                  <option value="asian">Asian</option>
+                  <option value="latino">Latino</option>
+                  <option value="white">White</option>
+                  <option value="mixed">Mixed</option>
                 </select>
               </div>
                <span class="help-block">
@@ -174,12 +174,12 @@
 
             <div class="col-md-8">
               <label  class="form-label">Performance Status</label>
-              <select multiple class="form-select" name="risk_group" >
+              <select multiple class="form-select" name="performance_status" id="performance_status" >
                 <option value="" selected></option>
-                <option>Very Good</option>
-                <option>Good</option>
-                <option>Poor</option>
-                <option>Very Poor</option>
+                <option value="VeryGood">Very Good</option>
+                <option value="Good">Good</option>
+                <option value="Poor">Poor</option>
+                <option value="VeryPoor">Very Poor</option>
               </select>
             </div>
 
@@ -191,7 +191,7 @@
 
             <div class="col-sm-6">
               <label  class="form-label">Cancer by Location</label>
-              <select class="form-select" name="cancerbyLocaton"  id="cancerbyLocaton">
+              <select class="form-select" name="cancerbyLocation"  id="cancerbyLocation">
                 <option value="" selected></option>
                 <option value=Breast>Breast</option>
                 <option value=Digestive>Digestive</option>
@@ -213,33 +213,32 @@
               <label class="form-label">Cancer by Type</label>
               <select class="form-select" name="cancerbyType"  id="cancerbyType">
                 <option value="" selected></option>
-                <option>Positive</option>
-                <option>Negative</option>
-                <option>Positive/Negative</option>
+                <option value="positive">Positive</option>
+                <option value="negative">Negative</option>
+                <option value="Positive/Negative">Positive/Negative</option>
               </select>
             </div>
 
             <div class="col-sm-6">
               <label class="form-label">Histopathologic Type</label>
-              <select multiple class="form-select" name="margin" >
+              <select multiple class="form-select" name="histopathologic_type" id="histopathologic_type" >
                 <option value="" selected></option>
-                <option>Carcinoma</option>
-                <option>Sarcoma</option>
-                <option>Myeloma</option>
-                <option>Leukemia</option>
-                <option>Lymphoma</option>
-                <option>Mixed Types</option>
+                <option value="carcinoma">Carcinoma</option>
+                <option value="sarcoma">Sarcoma</option>
+                <option value="myeloma">Myeloma</option>
+                <option value="leukemia">Leukemia</option>
+                <option value="lymphoma">Lymphoma</option>
+                <option value="mixedtypes">Mixed Types</option>
               </select>
             </div>
 
             <div class="col-sm-6">
               <label class="form-label">Histologic/Tumor Grade</label>
-              <select class="form-select" name="margin" >
-                <option value="" selected></option>
-                <option>G1 (low grade)</option>
-                <option>G2 (intermediate grade)</option>
-                <option>G3 (high grade)</option>
-                <option>GX (undetermined grade)</option>
+              <select class="form-select" name="histopathologic_tumor_grade" id="histopathologic_tumor_grade" >
+                <option value="low_grade">G1 (low grade)</option>
+                <option value="intermediate_grade">G2 (intermediate grade)</option>
+                <option value="high_grade">G3 (high grade)</option>
+                <option value="undetermined_grade">GX (undetermined grade)</option>
               </select>
             </div>
 
@@ -252,19 +251,18 @@
 
             <div class="col-md-4">
               <label  class="form-label">Staging System/Version</label>
-              <select class="form-select" name="recurrence" >
-                <option value="" selected></option>
-                <option>AJCC 7th ED, 2010</option>
-                <option>AJCC 8TH ED, 2017</option>
+              <select class="form-select" name="staging_system_version" id="staging_system_version">
+                <option value="7th">AJCC 7th ED, 2010</option>
+                <option value="8th">AJCC 8TH ED, 2017</option>
               </select>
             </div>
 
             <div class="col-sm-4">
               <label  class="form-label">Classification</label>
-              <select multiple class="form-select" name="recurrence" >
+              <select multiple class="form-select" name="classification" id="classification">
                 <option value="" selected></option>
-                <option>Clinical</option>
-                <option>Pathologic</option>
+                <option value="clinical">Clinical</option>
+                <option value="pathologic">Pathologic</option>
               </select>
             </div>
 
@@ -273,52 +271,52 @@
 
               <div class="col-sm-6">
                 <label class="form-label">Primary Tumor (T)</label>
-                <select multiple class="form-select" name="recurrence" >
+                <select multiple class="form-select" name="primary_tumor" id="primary_tumor">
                   <option value="" selected></option>
-                  <option>TX</option>
-                  <option>T0</option>
-                  <option>Tis(DICS)</option>
-                  <option>Tis(Paget)</option>
-                  <option>T1</option>
-                  <option>T1mi</option>
-                  <option>T1a</option>
-                  <option>T1b</option>
-                  <option>T1c</option>
-                  <option>T2</option>
-                  <option>T3</option>
-                  <option>T4</option>
-                  <option>T4a</option>
-                  <option>T4b</option>
-                  <option>T4c</option>
-                  <option>T4d</option>
+                  <option value="tx">TX</option>
+                  <option value="t0">T0</option>
+                  <option value="dics">Tis(DICS)</option>
+                  <option value="paget">Tis(Paget)</option>
+                  <option value="t1">T1</option>
+                  <option value="t1mi">T1mi</option>
+                  <option value="t1a">T1a</option>
+                  <option value="t1b">T1b</option>
+                  <option value="t1c">T1c</option>
+                  <option value="t2">T2</option>
+                  <option value="t3">T3</option>
+                  <option value="t4">T4</option>
+                  <option value="t4a">T4a</option>
+                  <option value="t4b">T4b</option>
+                  <option value="t4c">T4c</option>
+                  <option value="t4d">T4d</option>
                 </select>
               </div>
 
 
               <div class="col-sm-6">
                 <label class="form-label">Regional Lymph Nodes (N)</label>
-                <select multiple class="form-select" name="recurrence" >
+                <select multiple class="form-select" name="regional_lymph_node" id="regional_lymph_node">
                   <option value="" selected></option>
-                  <option>cNX</option>
-                  <option>cN0</option>
-                  <option>cN1</option>
-                  <option>cN1mi</option>
-                  <option>cN2</option>
-                  <option>cN2a</option>
-                  <option>cN2b</option>
-                  <option>cN3</option>
-                  <option>cN3a</option>
-                  <option>cN3b</option>
-                  <option>cN3c</option>
+                  <option value="cnx">cNX</option>
+                  <option value="cn0">cN0</option>
+                  <option value="cn1">cN1</option>
+                  <option value="cn1mi">cN1mi</option>
+                  <option value="cn2">cN2</option>
+                  <option value="cn2a">cN2a</option>
+                  <option value="cn2b">cN2b</option>
+                  <option value="cn3">cN3</option>
+                  <option value="cn3a">cN3a</option>
+                  <option value="cn3b">cN3b</option>
+                  <option value="cn3c">cN3c</option>
                 </select>
               </div>
 
               <label class="form-label">Distant Metastasis (M)</label>
-              <select multiple class="form-select" name="recurrence" >
+              <select multiple class="form-select" name="distant_metastasis" id="distant_metastasis"  >
                 <option value="" selected></option>
-                <option>M0</option>
-                <option>cM0(i+)</option>
-                <option>M1</option>
+                <option value="m0">M0</option>
+                <option value="cMo(i+)">cM0(i+)</option>
+                <option value="m1">M1</option>
               </select>
             </div>
 
@@ -329,29 +327,29 @@
           <div class="row gy-3">
             <div class="col-12">
               <label for="performance_status" class="form-label">Estrogen Receptor (ER) Status</label>
-               <select class="form-select" name="margin" >
+               <select class="form-select" name="estrogen_receptor_status" id="estrogen_receptor_status">
                 <option value="" selected></option>
-                <option>Positive</option>
-                <option>Negative</option>
+                <option value="positive">Positive</option>
+                <option value="negative">Negative</option>
               </select>
             </div>
 
             <div class="col-md-4">
               <label for="age" class="form-label">Progesterone Receptor (PR) Status</label>
-              <select class="form-select" name="margin" >
+              <select class="form-select" name="progesterone_receptor_status" id="progesterone_receptor_status">
                 <option value="" selected></option>
-                <option>Positive</option>
-                <option>Negative</option>
+                <option value="positive">Positive</option>
+                <option value="negative">Negative</option>
               </select>
             </div>
 
             <div class="col-md-4">
               <label for="weight" class="form-label">Her2Neu Status</label>
               <div class="input-group mb-3">
-              <select class="form-select" name="margin" >
+              <select class="form-select" name="her2neu_status" id="her2neu_status" >
                 <option value="" selected></option>
-                <option>Positive</option>
-                <option>Negative</option>
+                <option value="positive">Positive</option>
+                <option value="negative">Negative</option>
               </select>
               </div>
             </div>
@@ -364,34 +362,33 @@
 
             <div class="col-md-3">
               <label for="treatment_intent" class="form-label">Dimension range (cm)</label>
-              <input type="text" class="form-control" name="DOI" placeholder="">
+              <input type="text" class="form-control" name="dimension_range" id="dimension_range" placeholder="">
             </div>
 
             <div class="col-md-3">
               <label for="retreat" class="form-label">Volume Range (cc)</label>
-              <input type="text" class="form-control" name="DOI" placeholder="">
+              <input type="text" class="form-control" name="volume_range" id="volume_range" placeholder="">
             </div>
 
             <div class="col-md-3">
               <label for="prior_RT" class="form-label">Laterality</label>
-              <select multiple class="form-select" name="prior_RT" >
-                <option value=""></option>
-                <option>Yes</option>
-                <option>No</option>
-                <option>Unknown</option>
+              <select multiple class="form-select" name="laterality" id="laterality">
+                <option value="" selected></option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="unknown">Unknown</option>
               </select>
             </div>
 
             <div class="col-md-3">
               <label for="surgery" class="form-label">Prior Treatment</label>
-              <select multiple class="form-select" name="surgery" >
-               <option value=""></option>
-               <option>No</option>
-               <option>Surgery</option>
-               <option>Radiation Therapy</option>
-               <option>Chemotherapy</option>
-               <option>Immunotherapy</option>
-               <option>Harmone Therapy</option>
+              <select multiple class="form-select" name="prior_treatment" id="prior_treatment" >
+                <option value="no">No</option>
+                <option value="surgery">Surgery</option>
+                <option value="radiation_therapy">Radiation Therapy</option>
+                <option value="chemotherapy">Chemotherapy</option>
+                <option value="immunotherapy">Immunotherapy</option>
+                <option value="harmone_therapy">Harmone Therapy</option>
               </select>
             </div>
 
@@ -403,54 +400,50 @@
           <div class="row gy-3">
             <div class="col-12">
              <label for="prior_RT" class="form-label">Treatment Intent</label>
-              <select class="form-select" name="prior_RT" >
-                <option value="" selected></option>
-                <option>Curative</option>
-                <option>Palliative</option>
+              <select class="form-select" name="treatment_intent" id="treatment_intent" >
+                <option value="curative">Curative</option>
+                <option value="palliative">Palliative</option>
               </select>
             </div>
 
             <div class="col-md-5">
               <label for="base_dose_fraction" class="form-label">Treatment Setting</label>
-              <select class="form-select" name="prior_RT" >
-                <option value="" selected></option>
-                <option>Associated with the cancer type selected, e.g., Prostate</option>
-                <option>Prostate Bed</option>
-                <option>Prostate+Pelvis</option>
+              <select class="form-select" name="treatment_setting" id="treatment_setting" >
+                <option value="associated">Associated with the cancer type selected, e.g., Prostate</option>
+                <option value="prostate_bed">Prostate Bed</option>
+                <option value="prostate_pelvis">Prostate+Pelvis</option>
               </select>
             </div>
 
             <div class="col-md-7">
               <label for="base_dose_modality" class="form-label">Boost Dose (Gy) / Modality</label>
-              <input type="text" class="form-control" name="RI_boost_dose_modality" placeholder="xx Gy/(Photon, Electron, LDR, HDR, Proton)">
+              <input type="text" class="form-control" name="base_dose_modality" id="base_dose_modality" placeholder="xx Gy/(Photon, Electron, LDR, HDR, Proton)">
             </div>
 
             <div class="col-12">
               <label for="other_therapies" class="form-label">Addtional Therapies</label>
-              <select class="form-select" name="prior_RT" >
-                <option value="" selected></option>
-                <option>Yes</option>
-                <option>No</option>
+              <select class="form-select" name="additional_therapies" id="additional_therapies">
+                <option value="yes" selected>Yes</option>
+                <option value="no">No</option>
               </select>
             </div>
 
             <div class="col-12">
               <label for="other_therapies" class="form-label">Type of Therapy</label>
-              <select  multiple class="form-select" name="prior_RT" >
+              <select  multiple class="form-select" name="type_of_therapy" id="type_of_therapy">
                 <option value="" selected></option>
-                <option>Chemotherapy</option>
-                <option>Immunotherapy</option>
-                <option>Harmone Therapy</option>
+                <option value="chemotherapy" selected>Chemotherapy</option>
+                <option value="immunotherapy">Immunotherapy</option>
+                <option value="harmoneTherapy">Harmone Therapy</option>
               </select>
             </div>
 
             <div class="col-12">
               <label for="other_therapies" class="form-label">Timing of Therapy</label>
-              <select class="form-select" name="prior_RT" >
-                <option value="" selected></option>
-                <option>Neoadjuvant</option>
-                <option>Concurrent</option>
-                <option>Adjuvant</option>
+              <select class="form-select" name="timing_of_therapy" id="timing_of_therapy" >
+                <option value="neoadjuvant">Neoadjuvant</option>
+                <option value="concurrent">Concurrent</option>
+                <option value="adjuvant">Adjuvant</option>
               </select>
             </div>
 
@@ -461,12 +454,12 @@
           <div class="row gy-3">
 
             <div class="col-12">
-              <input type="text" class="form-control" name="regimen_II" placeholder="">
+              <input type="text" class="form-control" name="tcp_outcomes" id="tcp_outcomes" placeholder="">
             </div>
 
             <div class="col-md-5">
               <label for="base_dose_fraction" class="form-label">End Point(primary)</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="end_point_primary" id="end_point_primary" >
                 <option value="" selected></option>
                 <option></option>
                 <option></option>
@@ -476,7 +469,7 @@
 
             <div class="col-md-7">
               <label for="base_dose_modality" class="form-label">End Point(secondary)</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="end_point_secondary" id="end_point_secondary" >
                 <option value="" selected></option>
                 <option></option>
                 <option></option>
@@ -492,15 +485,15 @@
           <div class="row gy-3">
             <div class="col-md-5">
               <label for="RII_TCP_median_follow_up" class="form-label">Local Control (LC)</label>
-              <input type="text" class="form-control" name="local_control" placeholder="xxx">
+              <input type="text" class="form-control" name="local_control" id="local_control">
             </div>
             <div class="col-md-3">
               <label for="RII_LC" class="form-label">Overall Survival (OS)</label>
-              <input type="text" class="form-control" name="overall_survival" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="overall_survival" id="overall_survival">
             </div>
             <div class="col-md-4">
               <label for="RII_OS" class="form-label">Quality of Life (QoL)</label>
-              <input type="text" class="form-control" name="quality_of_life" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="quality_of_life"  id="quality_of_life">
             </div>
           </div>
 
@@ -510,39 +503,39 @@
           <div class="row gy-3">
             <div class="col-md-5">
               <label for="RI_TCP_median_follow_up" class="form-label">End Point (primary)</label>
-              <input type="text" class="form-control" name="RI_TCP_median_follow_up" placeholder="xxx">
+              <input type="text" class="form-control" name="ntcp_outcomes_end_point_primary" id="ntcp_outcomes_end_point_primary">
             </div>
             <div class="col-md-3">
               <label for="RI_LC" class="form-label">End Point (secondary)</label>
-              <input type="text" class="form-control" name="RI_LC" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="ntcp_outcomes_end_point_secondary" id="ntcp_outcomes_end_point_secondary" >
             </div>
             <div class="col-md-4">
               <label for="RI_OS" class="form-label">Median Follow-up (months)</label>
-              <input type="text" class="form-control" name="RI_OS" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="median_follow_up" id="median_follow_up" >
             </div>
             <div class="col-md-3">
               <label for="RI_PFS" class="form-label">Acute</label>
-              <input type="text" class="form-control" name="RI_PFS" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="acute" id="acute" >
             </div>
             <div class="col-md-3">
               <label for="RI_bPFS" class="form-label">G1+</label>
-              <input type="text" class="form-control" name="RI_bPFS" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="g1" id="g1" >
             </div>
             <div class="col-md-3">
               <label for="RI_DFS" class="form-label">G2+</label>
-              <input type="text" class="form-control" name="RI_DFS" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="g2" id="g2">
             </div>
             <div class="col-md-3">
               <label for="RI_FFS" class="form-label">G3+</label>
-              <input type="text" class="form-control" name="RI_FFS" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="g3" id="g3">
             </div>
             <div class="col-md-3">
               <label for="RI_MFS" class="form-label">G4+</label>
-              <input type="text" class="form-control" name="RI_MFS" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="g4" id="g4">
             </div>
             <div class="col-md-3">
               <label for="RI_MFS" class="form-label">G5</label>
-              <input type="text" class="form-control" name="RI_CSS" placeholder="">
+              <input type="text" class="form-control" name="g5" id="g5">
             </div>
           </div>
 
@@ -552,60 +545,60 @@
           <div class="row gy-3">
             <div class="col-md-4">
               <label for="RI_NTCP_median_follow_up" class="form-label">Treatment Intent</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="regiment_treatment_intent" id="regiment_treatment_intent">
                 <option value="" selected></option>
-                <option>Curative</option>
-                <option>Palliative</option>
+                <option value="curative">Curative</option>
+                <option value="palliative">Palliative</option>
               </select>
             </div>
 
             <div class="col-md-4">
               <label for="RI_toxicity_system" class="form-label">Treatment Setting</label>
-               <select class="form-select" name="prior_RT" >
+               <select class="form-select" name="regiment_treatment_setting" id="regiment_treatment_setting">
                 <option value="" selected></option>
-                <option>Associated with the cancer type selected, e.g., Prostate</option>
-                <option>Prostate Bed</option>
-                <option>Prostate+Pelvis</option>
+                <option value="Associated with the cancer type selected, e.g., Prostate">Associated with the cancer type selected, e.g., Prostate</option>
+                <option value="prostatebed">Prostate Bed</option>
+                <option value="prostate+Pelvis">Prostate+Pelvis</option>
               </select>
             </div>
 
             <div class="col-md-4">
               <label for="RI_acute" class="form-label">Base Dose (cGy) / Fractions</label>
-              <input type="text" class="form-control" name="RI_acute" placeholder="">
+              <input type="text" class="form-control" name="base_dose_fraction"  id="base_dose_fraction" placeholder="">
             </div>
             <div class="col-12">
               <label for="RI_G1+" class="form-label">Boost Dose (cGy) by Modality</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="boost_dose_by_modality" id="boost_dose_by_modality">
                 <option value="" selected></option>
-                <option>Boost Dose: an integer number (cGy) by Modality: Photon</option>
-                <option>Electron</option>
-                <option>Brachytherapy</option>
+                <option value="Boost Dose: an integer number (cGy) by Modality: Photon">Boost Dose: an integer number (cGy) by Modality: Photon</option>
+                <option value="Electron">Electron</option>
+                <option value="Brachytherapy">Brachytherapy</option>
               </select>
             </div>
             <div class="col-12">
               <label for="RI_G2+" class="form-label">Addtional Therapies</label>
-               <select class="form-select" name="prior_RT" >
+               <select class="form-select" name="regiment_additional_therapies" id="regiment_additional_therapies">
                 <option value="" selected></option>
-                <option>Yes</option>
-                <option>No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
               </select>
             </div>
             <div class="col-12">
               <label for="RI_G3+" class="form-label">Type of Therapy</label>
-             <select multiple class="form-select" name="prior_RT" >
+             <select multiple class="form-select" name="regiment_type_of_therapy" id="regiment_type_of_therapy">
                 <option value="" selected></option>
-                <option>Chemotherapy</option>
-                <option>Immunotherapy</option>
-                <option>Harmone Therapy</option>
+                <option value="Chemotherapy">Chemotherapy</option>
+                <option value="Immunotherapy">Immunotherapy</option>
+                <option value="Harmone Therapy">Harmone Therapy</option>
               </select>
             </div>
             <div class="col-12">
               <label for="RI_G4+" class="form-label">Timing of Therapy</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="regiment_timing_of_therapy" id="regiment_timing_of_therapy" >
                 <option value="" selected></option>
-                <option>Neoadjuvant</option>
-                <option>Concurrent</option>
-                <option>Adjuvant</option>
+                <option vaue="Neoadjuvant">Neoadjuvant</option>
+                <option value="Concurrent">Concurrent</option>
+                <option value="Adjuvant">Adjuvant</option>
               </select>
             </div>
           </div>
@@ -615,12 +608,12 @@
           <div class="row gy-3">
 
             <div class="col-12">
-              <input type="text" class="form-control" name="regimen_II" placeholder="">
+              <input type="text" class="form-control" name="regiment_tcp_outcomes" id="regiment_tcp_outcomes"  placeholder="">
             </div>
 
             <div class="col-md-5">
               <label for="base_dose_fraction" class="form-label">End Point(primary)</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="regiment_end_points_primary" id="regiment_end_points_primary" >
                 <option value="" selected></option>
                 <option></option>
                 <option></option>
@@ -630,7 +623,7 @@
 
             <div class="col-md-7">
               <label for="base_dose_modality" class="form-label">End Point(secondary)</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="regiment_end_points_secondary" id="regiment_end_points_secondary" >
                 <option value="" selected></option>
                 <option></option>
                 <option></option>
@@ -646,15 +639,15 @@
           <div class="row gy-3">
             <div class="col-md-5">
               <label for="RII_TCP_median_follow_up" class="form-label">Local Control (LC)</label>
-              <input type="text" class="form-control" name="local_control" placeholder="xxx">
+              <input type="text" class="form-control" name="media_follow_up_local_control" id="media_follow_up_local_control"  placeholder="xxx">
             </div>
             <div class="col-md-3">
               <label for="RII_LC" class="form-label">Overall Survival (OS)</label>
-              <input type="text" class="form-control" name="overall_survival" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="media_follow_up_overall_survival" id="media_follow_up_overall_survival" placeholder="xx%/xx mo">
             </div>
             <div class="col-md-4">
               <label for="RII_OS" class="form-label">Quality of Life (QoL)</label>
-              <input type="text" class="form-control" name="quality_of_life" placeholder="xx%/xx mo">
+              <input type="text" class="form-control" name="media_follow_up_quality_of_life" placeholder="xx%/xx mo">
             </div>
           </div>
 
@@ -664,7 +657,7 @@
           <div class="row gy-3">
             <div class="col-md-4">
               <label for="RII_NTCP_median_follow_up" class="form-label">End Point (primary)</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="media_ntcp_outcomes_end_point_primary" id="ntcp_outcomes_end_point_primary" >
                 <option value="" selected></option>
                 <option></option>
                 <option></option>
@@ -674,7 +667,7 @@
 
             <div class="col-md-4">
               <label for="RI_toxicity_system" class="form-label">End Point (secondary)</label>
-              <select class="form-select" name="prior_RT" >
+              <select class="form-select" name="media_ntcp_outcomes_end_point_secondy" id="ntcp_outcomes_end_point_secondy">
                 <option value="" selected></option>
                 <option></option>
                 <option></option>
@@ -684,31 +677,31 @@
 
             <div class="col-md-4">
               <label for="RII_acute" class="form-label">Median Follow-up (months)</label>
-              <input type="text" class="form-control" name="RII_acute" >
+              <input type="text" class="form-control" name="media_ntcp_outcomes_media_follow_up" id="media_ntcp_outcomes_media_follow_up">
             </div>
             <div class="col-12">
               <label for="RII_G1+" class="form-label">Acute</label>
-              <input type="text" class="form-control" name="acute" placeholder="">
+              <input type="text" class="form-control" name="ntcp_outcomes_acute" id="ntcp_outcomes_acute"  placeholder="">
             </div>
             <div class="col-12">
               <label for="RII_G2+" class="form-label">G1+</label>
-              <input type="text" class="form-control" name="RII_G2" placeholder="">
+              <input type="text" class="form-control" name="ntcp_media_g1" id="ntcp_media_g1" placeholder="">
             </div>
             <div class="col-12">
               <label for="RII_G3+" class="form-label">G2+</label>
-              <input type="text" class="form-control" name="RII_G3" placeholder="">
+              <input type="text" class="form-control" name="ntcp_media_g2" id="ntcp_media_g2" placeholder="">
             </div>
             <div class="col-12">
               <label for="RII_G4+" class="form-label">G3+</label>
-              <input type="text" class="form-control" name="RII_G4" placeholder="">
+              <input type="text" class="form-control" name="ntcp_media_g3" id="ntcp_media_g3" placeholder="">
             </div>
             <div class="col-12">
               <label for="RII_G5" class="form-label">G4+</label>
-              <input type="text" class="form-control" name="RII_G5" placeholder="">
+              <input type="text" class="form-control" name="ntcp_media_g4" id="ntcp_media_g4" placeholder="">
             </div>
             <div class="col-12">
               <label for="RII_G5" class="form-label">G5</label>
-              <input type="text" class="form-control" name="RII_G5" placeholder="">
+              <input type="text" class="form-control" name="ntcp_media_g5" id="ntcp_media_g5" placeholder="">
             </div>
           </div>
 
@@ -718,12 +711,12 @@
           <div class="row gy-3">
             <div class="col-5">
               <label for="modality" class="form-label">Modality</label>
-              <select  multiple class="form-select" name="modality" id="modality" >
+              <select  multiple class="form-select" name="treatment_techniques" id="treatment_techniques" >
                 <option value="" selected></option>
-                <option>Photon</option>
-                <option>Proton</option>
-                <option>Electron</option>
-                <option>Brachytherapy</option>
+                <option value="photon">Photon</option>
+                <option value="proton">Proton</option>
+                <option value="electron">Electron</option>
+                <option value="brachytherapy">Brachytherapy</option>
               </select>
             </div>
 
@@ -736,12 +729,12 @@
               <label for="planning" class="form-label">Planning</label>
                <select  multiple class="form-select" name="planing" id="planing">
                 <option value="" selected></option>
-                <option>3D</option>
-                <option>IMRT</option>
-                <option>VMAT</option>
-                <option>SRS</option>
-                <option>SBRT</option>
-                <option>Adaptive</option>
+                <option value="3d">3D</option>
+                <option value="imrt">IMRT</option>
+                <option value="vmat">VMAT</option>
+                <option value="srs">SRS</option>
+                <option value="sbrt">SBRT</option>
+                <option value="adaptive">Adaptive</option>
               </select>
             </div>
             
@@ -754,13 +747,13 @@
               <label for="delivery" class="form-label">Delivery</label>
               <select  multiple class="form-select" name="delivery" id="delivery">
                 <option value="" selected></option>
-                <option>Linac</option>
-                <option>MR-Linac</option>
-                <option>CyberKnife</option>
-                <option>Gamma Knife</option>
-                <option>Tomo</option>
-                <option>LDR</option>
-                <option>HDR</option>
+                <option value="linac">Linac</option>
+                <option value="mr_linac">MR-Linac</option>
+                <option value="cyberknife">CyberKnife</option>
+                <option value="grmma_knife">Gamma Knife</option>
+                <option value="tomo">Tomo</option>
+                <option value="ldr">LDR</option>
+                <option value="hdr">HDR</option>
               </select>
             </div>
 
@@ -773,11 +766,11 @@
               <label for="imaging" class="form-label">Imaging</label>
               <select  multiple class="form-select" name="imaging" id="imaging" >
                 <option value="" selected></option>
-                <option>kV</option>
-                <option>CBCT</option>
-                <option>MV</option>
-                <option>MR</option>
-                <option>SGRT</option>
+                <option value="kv">kV</option>
+                <option value="cbct">CBCT</option>
+                <option value="mv">MV</option>
+                <option value="mr">MR</option>
+                <option value="sgrt">SGRT</option>
               </select>
             </div>
 
@@ -790,10 +783,10 @@
               <label for="setup" class="form-label">Setup</label>
                <select  multiple class="form-select" name="setup" id="setup" >
                 <option value="" selected></option>
-                <option>Fiducials</option>
-                <option>Bolus</option>
-                <option>Spacer</option>
-                <option>Rectum Balloon</option>
+                <option value="fiducials">Fiducials</option>
+                <option value="bolus">Bolus</option>
+                <option value="spacer">Spacer</option>
+                <option value="rectum_balloon">Rectum Balloon</option>
               </select>
             </div>
             
@@ -812,7 +805,7 @@
           <hr class="my-4">
 
           <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-dark" type="submit" value="add">Add</button>
+            <button id="protocolform" class="btn btn-dark" type="button" value="add">Add</button>
           </div>
 
           <hr class="my-4">
@@ -838,7 +831,26 @@
 
 <script>
   $(document).ready(function () {
-    $("#cancerbyLocaton").change(function () {
+
+    $('#protocolform').click(function() {
+         $.ajax({
+          url: 'http://127.0.0.1:5000/protocol_save',
+          data: $('#detailsForm').serialize(),
+          type: 'POST',
+          headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+          success: function(response) {
+
+            if(response!='' && response=='1'){
+              alert('added successed');
+            }
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      });
+
+    $("#cancerbyLocation").change(function () {
         var val = $(this).val();
         if (val == "Breast") {
             $("#cancerbyType").html("<option value='BreastCancer'>Breast Cancer</option>");

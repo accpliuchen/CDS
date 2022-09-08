@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | jsGrid</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- jsGrid -->
+  <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid.min.css">
+  <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid-theme.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition">
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <h3>Matching Criteria</h3>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Patient </h4>
+       <form id="matchForm" name="matchForm">
+           <div class="row g-3">
+             <div class="col-sm-6">
+              <select class="form-select" name="match_patient"  id="match_patient">
+              </select>
+             </div>
+           </div>
+           <hr class="my-4">
+           <h4 class="mb-3">Fields & Weights</h4>
+           <span class="help-block">
+            <small>Enter to change the matching weights (0 means not used for matching).</small>
+           </span>
+            <hr class="my-2">
+            <h5 class="mb-2">1.Patient Characteristics</h5>
+            <div class="row mb-2">
+              <label for="treatsite" class="col-sm-3 col-form-label">Age Range(year old)</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="age_range" id="age_range" value="10">
+              </div>
+            </div>
+            <div class="row mb-2">
+              <label for="T" class="col-sm-3 col-form-label">Weight Range(kg)</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="weight_range"  id="weight_range"  value="10">
+              </div>
+            </div>
+            <div class="row mb-2">
+              <label for="N" class="col-sm-3 col-form-label">Gender</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="gender" id="gender" value="10">
+              </div>
+            </div>
+            <div class="row mb-2">
+              <label for="M" class="col-sm-3 col-form-label">Race</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="race" id="race" value="10">
+              </div>
+            </div>
+            <div class="row mb-2">
+              <label for="risk_group" class="col-sm-3 col-form-label">Perfomance Status</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="performance_status" id="performance_status" value="10">
+              </div>
+            </div>
+
+            <hr class="my-2">
+            <h5 class="mb-2">2.Diagnosis</h5>
+            <div class="row mb-2">
+              <label for="histology" class="col-sm-3 col-form-label">Cancer by Location</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="cancer_by_location" id="cancer_by_location" value="10">
+              </div>
+            </div>
+            <div class="row mb-2">
+              <label for="margin" class="col-sm-3 col-form-label">Cancer by Type</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="cancer_by_type" id="cancer_by_type" value="10">
+              </div>
+            </div>
+            <div class="row mb-2">
+              <label for="PSA" class="col-sm-3 col-form-label">Histopathologic Type</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="histopathologic_type" id="histopathologic_type" value="10">
+              </div>
+            </div>
+            <div class="row mb-2">
+              <label for="gleason" class="col-sm-3 col-form-label">Histologic/Tumpor Grade</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="histopathologic_tumor_grade" id="histopathologic_tumor_grade"  value="10">
+              </div>
+            </div>
+            <hr class="my-2">
+            <h5 class="mb-2">3.Cancer Staging</h5>
+            <div class="row mb-2">
+              <label for="recurrence" class="col-sm-3 col-form-label">Staging System/Version</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="staging_system_version" id="staging_system_version" value="10">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="recurrence" class="col-sm-3 col-form-label">Classification</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="classification" id="classification" value="10">
+              </div>
+            </div>
+
+            <h7 class="mb-2">3.1 Clinical stage</h7>
+            <div class="row mb-2">
+              <label for="recurrence" class="col-sm-3 col-form-label">Primary Tumor(T)</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="primary_tumor" id="primary_tumor" value="10">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="recurrence" class="col-sm-3 col-form-label">Regional Lymph Nodes(N)</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="regional_lymph_node" id="regional_lymph_node" value="10">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="recurrence" class="col-sm-3 col-form-label">Distant Metastasis(M)</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="distant_metastasis" id="distant_metastasis" value="10">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="recurrence" class="col-sm-3 col-form-label">Stage Group - Clinical</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="stage_group_clinical" id="stage_group_clinical" value="10">
+              </div>
+            </div>
+
+             <h7 class="mb-2">3.2 Pathologic stage</h7>
+            <div class="row mb-2">
+              <label for="recurrence" class="col-sm-3 col-form-label">Primary Tumor(T)</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="pathologic_stage_primary_tumor" id="pathologic_stage_primary_tumor"  value="10">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="recurrence" class="col-sm-3 col-form-label">Regional Lymph Nodes(N)</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="pathologic_stage_regional_lymph_node" id="pathologic_stage_regional_lymph_node" value="10">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="recurrence" class="col-sm-3 col-form-label">Distant Metastasis(M)</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="pathologic_stage_distant_metastasis" id="pathologic_stage_distant_metastasis" value="10">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="recurrence" class="col-sm-3 col-form-label">Stage Group - Pathologic</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="pathologic_stage_group" id="pathologic_stage_group" value="10">
+              </div>
+            </div>
+
+            <hr class="my-2">
+            <h5 class="mb-2">4.Cancer Specific Lab(Indicators)</h5>
+            <div class="row mb-2">
+              <label for="performance_status" class="col-sm-3 col-form-label">PSA Range</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="psa_range" id="psa_range" value="6">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="age" class="col-sm-3 col-form-label">Gleason Score Grading</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="gleason_score_grading" id="gleason_score_grading" value="3">
+              </div>
+            </div>
+
+             <div class="row mb-2">
+              <label for="age" class="col-sm-3 col-form-label">Gleason Primary Pattern</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="gleason_primary_pattern" id="gleason_primary_pattern"  value="3">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="age" class="col-sm-3 col-form-label">Gleason Secondary Pattern</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="gleason_secondary_pattern" id="gleason_secondary_pattern"  value="3">
+              </div>
+            </div>
+
+             <div class="row mb-2">
+              <label for="age" class="col-sm-3 col-form-label">Indication/Risk Group NCCN</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="Indication_risk_group_nccn" id="Indication_risk_group_nccn" value="3">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="age" class="col-sm-3 col-form-label">Estogen Receptor(ER) Status</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="estrogen_receptor_status" id="estrogen_receptor_status" value="3">
+              </div>
+            </div>
+
+           <div class="row mb-2">
+              <label for="age" class="col-sm-3 col-form-label">Progesterone Reeptor(PR) Status</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="progesterone_receptor_status" id="progesterone_receptor_status" value="3">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="age" class="col-sm-3 col-form-label">Her2Neu Status</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="her2neu_status" id="her2neu_status" value="3">
+              </div>
+            </div>
+
+
+            <hr class="my-2">
+            <h5 class="mb-2">5.Tumor Characteristics and History</h5>
+            <div class="row mb-2">
+              <label for="treatment_intent" class="col-sm-3 col-form-label">Dimension Range(cm)</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="dimension_range" id="dimension_range" value="10">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="retreat" class="col-sm-3 col-form-label">Volume Range(cc)</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="volume_range" id="volume_range"  value="10">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="prior_RT" class="col-sm-3 col-form-label">Laterality</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="laterality" id="laterality" value="10">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="surgery" class="col-sm-3 col-form-label">Prior Treament</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="prior_treatment" id="prior_treatment" value="10">
+              </div>
+            </div>
+            <div class="row mb-2">
+              <label for="chemtherapy" class="col-sm-3 col-form-label">Tumor Resected</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="tumor_resected" id="tumor_resected" value="10">
+              </div>
+            </div>
+            <div class="col-12">
+             <br/>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+             <button class="btn btn-dark" type="button" value="add" id="matchform">Match</button>
+            </div>
+            <div class="col-12">
+              <br/>
+            </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="card" id="cardMath">
+              <div class="card-header">
+                <h3 class="card-title">Match Score</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th>Sum Up</th>
+                      <th></th>
+    
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td><div id="sumup"></div></td>
+                      
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+
+  </main>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- jsGrid -->
+<script src="../../plugins/jsgrid/demos/db.js"></script>
+<script src="../../plugins/jsgrid/jsgrid.min.js"></script>
+
+<!-- Page specific script -->
+<script>
+  $(function () {
+
+          $("#cardMath").hide();
+
+          $.ajax({
+          url: "http://127.0.0.1:5000/patient_load",
+          headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+          success: function(response) {
+            var obj = $.parseJSON(response);
+            var data="";
+
+            for(i=0;i<obj.data.length;i++){
+              //console.log(obj.data[0].id);
+
+              data+="<option value='"+obj.data[i].id+"'>"+obj.data[i].full_name+"</option>";
+
+            }
+
+            $("#match_patient").html(data);
+
+          },
+          error: function(error) {
+            console.log(error);
+          }
+         });
+
+
+        $('#matchform').click(function() {
+         $.ajax({
+          url: 'http://127.0.0.1:5000/match',
+          data: $('#matchForm').serialize(),
+          type: 'POST',
+          headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+          success: function(response) {
+            $("#cardMath").show();
+            $("#sumup").html(response);
+            console.log(response);
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      });
+  });
+</script>
+</body>
+</html>

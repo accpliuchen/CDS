@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CDS | Registration Page</title>
+  <title>health CDS | Registration Page</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -69,8 +69,6 @@
   <!-- jsGrid -->
   <script src="plugins/jsgrid/demos/db.js"></script>
   <script src="plugins/jsgrid/jsgrid.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="dist/js/adminlte.min.js"></script>
 
   <!-- Page specific script -->
   <script>
@@ -81,11 +79,24 @@
 					url: 'http://127.0.0.1:5000/users_login',
           data: $('#detailsForm').serialize(),
 					type: 'POST',
-					headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+					headers: {'Access-Control-Allow-Origin': 'http://The web site allowed to access'},
 					success: function(response) {
-              if(response=='0'){
-                location.href='dashboard.html';
-              }
+               var obj = $.parseJSON(response);
+
+
+               for(i=0;i<obj.data.length;i++){
+                 localStorage.setItem("Id", obj.data[i].Id);
+                 localStorage.setItem("UserName", obj.data[i].UserName);
+                 localStorage.setItem("LastName", obj.data[i].LastName);
+                 localStorage.setItem("FirstName", obj.data[i].FirstName);
+                 localStorage.setItem("Email", obj.data[i].Email);
+                 localStorage.setItem("Type", obj.data[i].type);
+               }
+
+               if(obj.data.length>0){
+                 location.href='dashboard.html';
+               }
+
 					},
 					error: function(error) {
 						console.log(error);

@@ -9,45 +9,367 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- jsGrid -->
-  <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid.min.css">
-  <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid-theme.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body class="hold-transition">
 <div class="wrapper">
   <!-- /.navbar -->
-    <!-- Main content -->
-    <section class="content">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">User Grids</h3>
+  <div class="container col-md-12">
+  <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Protocol List
         </div>
-        <!-- /.card-header -->
-        <div class="card-body">
-          <div id="jsGrid1"></div>
-        </div>
-        <!-- /.card-body -->
-      </div>
-      <!-- /.card -->
-    </section>
-    <!-- /.content -->
-	
+        <div class="panel-body">
+          <table class="table table-condensed table-striped">
+    <thead>
+        <tr id="panel_title">
+          
+        </tr>
+    </thead>
 
-    <div class="float-right">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <tbody>
+        <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle" id="medical_record_number">
+           <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+        </tr>
+      
+
+       <tr>
+            <td colspan="20" class="hiddenRow">
+              Study/Protocol
+              <div class="accordian-body collapse" id="demo1"> 
+
+              <table class="table table-condensed table-striped">
+                      <tbody>
+                        <tr id=author_name>
+            
+                        </tr>
+   
+                      
+                      
+                        
+                        <tr id="protocol_name">
+     
+                        </tr>
+          
+                                                    
+                        <tr id="publish_date">
+                
+                        </tr>
+                        
+                            
+                        <tr id="study_type">
+                         
+                        </tr>
+                        
+                            
+                        <tr id="analysis_type">
+                         
+                        </tr>
+
+                        <tr id="number_of_patients">
+                         
+                        </tr>
+
+                        <tr id="study_institution">
+                         
+                        </tr>
+
+                        <tr id="country_of_study">
+                         
+                        </tr>
+
+                        <tr id="publication_unique_id">
+                         
+                        </tr>
+                        
+                        <tr id="doi">
+                         
+                        </tr>
+                
+               
+                      </tbody>
+                </table>
+              
+              </div> 
+          </td>
+        </tr>
+
+        <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
+           <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+        </tr>
+
+        <tr>
+            <td colspan="06" class="hiddenRow">
+              Patient Characteristics
+              <div class="accordian-body collapse" id="demo2"> 
+
+              <table class="table table-condensed table-striped">
+
+                 <tbody>
+                        <tr id=age_range>
+            
+                        </tr>
+
+                        <tr id="weight_range_t">
+     
+                        </tr>
+          
+                                                    
+                        <tr id="weight_range_n">
+                
+                        </tr>
+                        
+                            
+                        <tr id="weight_range_m">
+                         
+                        </tr>
+                        
+                            
+                        <tr id="performance_status">
+                         
+                        </tr>
+                
+               
+                      </tbody>
+                </table>
+              
+              </div> 
+          </td>
+        </tr>
+      
+      
+      
+        <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
+           <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+        </tr>
+
+        <tr>
+            <td colspan="06" class="hiddenRow">
+              Diagnosis
+              <div class="accordian-body collapse" id="demo3"> 
+
+              <table class="table table-condensed table-striped">
+
+                 <tbody>
+                        <tr id=cancerbyLocation>
+            
+                        </tr>
+
+                        <tr id="cancerbyType">
+     
+                        </tr>
+          
+                                                    
+                        <tr id="histopathologic_type">
+                
+                        </tr>
+                        
+                            
+                        <tr id="histopathologic_tumor_grade">
+                         
+                        </tr>
+                        
+                
+               
+                      </tbody>
+                </table>
+              
+              </div> 
+          </td>
+        </tr>
+        <tr data-toggle="collapse" data-target="#demo4" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">Cancer Staging
+            <div id="demo4" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+                        <tr id="staging_system_version"></tr>
+                        <tr id="classification"></tr>
+                        <tr id="primary_tumor"></tr>
+                        <tr id="regional_lymph_node"></tr>
+                        <tr id="distant_metastasis"></tr>
+                </table>
+
+            </div></td>
+        </tr>
+
+        <tr data-toggle="collapse" data-target="#demo5" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">Cancer Specific Lab
+            <div id="demo5" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+                        <tr id="estrogen_receptor_status"></tr>
+                        <tr id="progesterone_receptor_status"></tr>
+                        <tr id="her2neu_status"></tr>
+                </table>
+
+            </div></td>
+        </tr>
+
+
+        <tr data-toggle="collapse" data-target="#demo6" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">Tumor Characteristics and History
+            <div id="demo6" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+             <tr id="dimension_range"></tr>
+             <tr id="volume_range"></tr>
+             <tr id="laterality"></tr>
+             <tr id="prior_treatment"></tr>
+            </table>
+
+            </div></td>
+        </tr>
+
+         <tr data-toggle="collapse" data-target="#demo16" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">Treatment
+            <div id="demo16" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+             <tr id="treatment_intent"></tr>
+             <tr id="treatment_setting"></tr>
+             <tr id="roost_dose_modality"></tr>
+             <tr id="additional_therapies"></tr>
+             <tr id="type_of_therapy"></tr>
+             <tr id="timing_of_therapy"></tr>
+            </table>
+            </div></td>
+        </tr>
+
+        <tr data-toggle="collapse" data-target="#demo7" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">TCP Outcomes
+            <div id="demo7" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+             <tr id="tcp_outcomes"></tr>
+             <tr id="end_point_primary"></tr>
+             <tr id="end_point_secondary"></tr>
+            </table>
+            </div></td>
+        </tr>
+
+
+        <tr data-toggle="collapse" data-target="#demo8" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">Median Follow-up (months)
+            <div id="demo8" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+             <tr id="local_control"></tr>
+             <tr id="overall_survival"></tr>
+             <tr id="quality_of_life"></tr>
+            </table>
+            </div></td>
+        </tr>
+
+
+        <tr data-toggle="collapse" data-target="#demo9" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">NTCP Outcomes
+            <div id="demo9" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+             <tr id="ntcp_outcomes_end_point_primary"></tr>
+             <tr id="ntcp_outcomes_end_point_secondy"></tr>
+             <tr id="median_follow_up"></tr>
+             <tr id="ntcp_outcomes_acute"></tr>
+             <tr id="ntcp_outcomes_g1"></tr>
+             <tr id="ntcp_outcomes_g2"></tr>
+             <tr id="ntcp_outcomes_g3"></tr>
+             <tr id="ntcp_outcomes_g4"></tr>
+             <tr id="ntcp_outcomes_g5"></tr>
+            </table>
+            </div></td>
+        </tr>
+
+        <tr data-toggle="collapse" data-target="#demo10" class="accordion-toggle">
+             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">Regiment II
+            <div id="demo10" class="accordian-body collapse">
+            <table class="table table-condensed table-striped">
+             <tr id="regiment_treatment_intent"></tr>
+             <tr id="regiment_treatment_setting"></tr>
+             <tr id="boost_dose_by_modality"></tr>
+             <tr id="regiment_additional_therapies"></tr>
+             <tr id="regiment_type_of_therapy"></tr>
+             <tr id="regiment_timing_of_therapy"></tr>
+            </table>
+            </div></td>
+        </tr>
+       
+        
+
+    </tbody>
+</table>
+            </div>
+        
+          </div> 
+        
+      </div>
+  </div>
+  
+
 
  </div>
 
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
@@ -64,23 +386,338 @@
 <!-- Page specific script -->
 <script>
   $(function () {
-    $("#jsGrid1").jsGrid({
-        height: "100%",
-        width: "100%",
 
-        sorting: true,
-        paging: true,
 
-        data: db.clients,
+    $.ajax({
+      url: 'http://127.0.0.1:5000/protocol_load',
+      type: 'POST',
+      headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+      success: function(response) {
 
-        fields: [
-            { name: "Name", type: "text", width: 150 },
-            { name: "Age", type: "number", width: 50 },
-            { name: "Address", type: "text", width: 200 },
-            { name: "Country", type: "select", items: db.countries, valueField: "Id", textField: "Name" },
-            { name: "Married", type: "checkbox", title: "Is Married" }
-        ]
-    });
+        var obj = $.parseJSON(response);
+
+        console.log(obj.data.length);
+        
+        // Study/Protocol
+        var author_name='';
+        var protocol_name='';
+        var publish_date='';
+        var study_type='';
+        var analysis_type='';
+        var number_of_patients='';
+        var study_institution='';
+        var country_of_study='';
+        var publication_unique_id='';
+        var doi='';
+       
+        // Patient Characteristics
+        var age_range='';
+        var weight_range_t='';
+        var weight_range_n='';
+        var weight_range_m='';
+        var performance_status='';
+
+        var cancerbyLocation='';
+        var cancerbyType='';
+        var histopathologic_type='';
+        var histopathologic_tumor_grade='';
+
+        var staging_system_version='';
+        var classification='';
+        var primary_tumor='';
+        var regional_lymph_node='';
+        var distant_metastasis='';
+
+       
+        // Cancer Specific Lab
+        var estrogen_receptor_status='';
+        var progesterone_receptor_status='';
+        var her2neu_status='';
+
+        var dimension_range='';
+        var volume_range='';
+        var laterality='';
+        var prior_treatment='';
+        
+
+        var treatment_intent='';
+        var treatment_setting='';
+        var roost_dose_modality='';
+        var additional_therapies='';
+        var type_of_therapy='';
+        var timing_of_therapy='';
+
+        var tcp_outcomes='';
+        var end_point_primary='';
+        var end_point_secondary='';
+
+        var local_control='';
+        var overall_survival='';
+        var quality_of_life='';
+
+        var ntcp_outcomes_end_point_primary='';
+        var ntcp_outcomes_end_point_secondy='';
+        var ntcp_outcomes_acute='';
+        var ntcp_outcomes_g1='';
+        var ntcp_outcomes_g2='';
+        var ntcp_outcomes_g3='';
+        var ntcp_outcomes_g4='';
+        var ntcp_outcomes_g5='';
+
+        var regiment_treatment_intent='';
+        var regiment_treatment_setting='';
+        var base_dose_fraction='';
+        var boost_dose_by_modality='';
+        var regiment_additional_therapies='';
+        var regiment_type_of_therapy='';
+        var regiment_timing_of_therapy='';
+
+        var regiment_tcp_outcomes='';
+        var regiment_end_points_primary='';
+        var regiment_end_points_secondary='';
+        var media_follow_up_local_control='';
+        var media_follow_up_overall_survival='';
+        var media_follow_up_quality_of_life='';
+        var media_ntcp_outcomes_end_point_primary='';
+        var media_ntcp_outcomes_end_point_secondy='';
+        var media_ntcp_outcomes_media_follow_up='';
+        var ntcp_outcomes_acute='';
+        var ntcp_media_g1='';
+        var ntcp_media_g2='';
+        var ntcp_media_g3='';
+        var ntcp_media_g4='';
+        var ntcp_media_g5='';
+
+        author_name+='<th width=8%></th>';
+        protocol_name+='<td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>';
+        publish_date+='<td width="15%">Publish Date</td>';
+        study_type+='<td>Study Type</td>';
+        analysis_type+='<td>Analysis Type</td>';
+        number_of_patients+='<td>Number of Patients</td>';
+        study_institution+='<td>Study Institution</td>';
+        country_of_study+='<td>Country of Study</td>';
+        publication_unique_id+='<td>Publication unique ID(PMID)</td>';
+        doi+='<td>Full Study PDF (DOI number)</td>';
+
+
+        age_range+='<td width=15%>Age Range(years old)</td>';
+        weight_range_t+='<td width=15%>Weight Range(kg)</td>';
+        weight_range_n+='<td width=15%>Gender</td>';
+        weight_range_m+='<td width=15%>Race</td>';
+        performance_status+='<td width=15%>Performance Status</td>';
+
+        cancerbyLocation+='<td width=15%>Cancer by Location</td>';
+        cancerbyType+='<td width=15%>Cancer by Type</td>';
+        histopathologic_type+='<td width=15%>Histopathologic Type</td>';
+        histopathologic_tumor_grade+='<td width=15%>Histologic/Tumor Grade</td>';
+
+
+        staging_system_version+='<td width=15%>Staging System/Version</td>';
+        classification+='<td width=15%>Classification</td>';
+        primary_tumor+='<td width=15%>Primary Tumor (T)</td>';
+        regional_lymph_node+='<td width=15%>Regional Lymph Nodes (N)</td>';
+        distant_metastasis+='<td width=15%>Distant Metastasis (M)</td>';
+
+        estrogen_receptor_status+='<td width=15%>Estrogen Receptor (ER) Status</td>';
+        progesterone_receptor_status+='<td width=15%>Progesterone Receptor (PR) Status</td>';
+        her2neu_status+='<td width=15%>Her2Neu Status</td>';
+
+        dimension_range+='<td width=15%>Dimension range (cm)</td>';
+        volume_range+='<td width=15%>Volume Range (cc)</td>';
+        laterality+='<td width=15%>Laterality</td>';
+        prior_treatment+='<td width=15%>Prior Treatment</td>';
+
+        treatment_intent+='<td width=15%>Treatment Intent</td>';
+        treatment_setting+='<td width=15%>Treatment Setting</td>';
+        roost_dose_modality+='<td width=15%>Boost Dose (Gy) / Modality</td>';
+        additional_therapies+='<td width=15%>Addtional Therapies</td>';
+        type_of_therapy+='<td width=15%>Type of Therapy</td>';
+        timing_of_therapy+='<td width=15%>Timing of Therapy</td>';
+
+
+        tcp_outcomes+='<td width=15%>TCP Outcomes</td>';
+        end_point_primary+='<td width=15%>End Point(primary)</td>';
+        end_point_secondary+='<td width=15%>End Point(secondary)</td>';
+
+        local_control+='<td width=15%>Local Control (LC)</td>';
+        overall_survival+='<td width=15%>Overall Survival (OS)</td>';
+        quality_of_life+='<td width=15%>Quality of Life (QoL)</td>';
+
+
+        ntcp_outcomes_end_point_primary+='<td width=15%>End Point (primary)</td>';
+        ntcp_outcomes_end_point_secondy+='<td width=15%>End Point (secondary)</td>';
+        median_follow_up+='<td width=15%>Median Follow-up (months)</td>';
+        ntcp_outcomes_acute+='<td width=15%>Acute</td>';
+        ntcp_outcomes_g1+='<td width=15%>G1+</td>';
+        ntcp_outcomes_g2+='<td width=15%>G2+</td>';
+        ntcp_outcomes_g3+='<td width=15%>G3+</td>';
+        ntcp_outcomes_g4+='<td width=15%>G4+</td>';
+        ntcp_outcomes_g5+='<td width=15%>G5+</td>';
+
+        regiment_treatment_intent+='<td width=15%>Treatment Intent</td>';
+        regiment_treatment_setting+='<td width=15%>Treatment Setting</td>';
+        base_dose_fraction+='<td width=15%>Base Dose (cGy) / Fractions</td>';
+        boost_dose_by_modality+='<td width=15%>Boost Dose (cGy) by Modality</td>';
+        regiment_additional_therapies+='<td width=15%>Addtional Therapies</td>';
+        regiment_type_of_therapy+='<td width=15%>Type of Therapy</td>';
+        regiment_timing_of_therapy+='<td width=15%>Timing of Therapy</td>';
+
+
+
+   
+        for(i=0;i<obj.data.length;i++){
+
+             author_name+="<th width=8%>"+obj.data[i].author_name+"</th>";
+             protocol_name+="<td width=10%>"+obj.data[i].protocol_name+"</td>";
+             publish_date+="<td width=10%>"+obj.data[i].publish_date+"</td>";
+             study_type+="<td width=10%>"+obj.data[i].study_type+"</td>";
+             analysis_type+="<td width=10%>"+obj.data[i].analysis_type+"</td>";
+             number_of_patients+="<td width=10%>"+obj.data[i].number_of_patients+"</td>";
+             study_institution+="<td width=10%>"+obj.data[i].study_institution+"</td>";
+             country_of_study+="<td width=10%>"+obj.data[i].country_of_study+"</td>";
+             publication_unique_id+="<td width=10%>"+obj.data[i].publication_unique_id+"</td>";
+             doi+="<td width=10%>"+obj.data[i].doi+"</td>";
+             
+             age_range+="<td width=5%>"+obj.data[i].age_range+"</td>";
+             weight_range_t+="<td width=20%>"+obj.data[i].weight_range_t+"</td>";
+             weight_range_n+="<td width=20%>"+obj.data[i].weight_range_n+"</td>";
+             weight_range_m+="<td width=20%>"+obj.data[i].weight_range_m+"</td>";
+             performance_status+="<td width=20%>"+obj.data[i].performance_status+"</td>";
+
+             cancerbyLocation+="<td width=20%>"+obj.data[i].cancerbyLocation+"</td>";
+             cancerbyType+="<td width=20%>"+obj.data[i].cancerbyType+"</td>";
+             histopathologic_type+="<td width=20%>"+obj.data[i].histopathologic_type+"</td>";
+             histopathologic_tumor_grade+="<td width=20%>"+obj.data[i].histopathologic_tumor_grade+"</td>";
+
+             staging_system_version+="<td width=20%>"+obj.data[i].staging_system_version+"</td>";
+             classification+="<td width=20%>"+obj.data[i].classification+"</td>";
+             primary_tumor+="<td width=20%>"+obj.data[i].primary_tumor+"</td>";
+             regional_lymph_node+="<td width=20%>"+obj.data[i].regional_lymph_node+"</td>";
+             distant_metastasis+="<td width=20%>"+obj.data[i].distant_metastasis+"</td>";
+
+             estrogen_receptor_status+="<td width=20%>"+obj.data[i].estrogen_receptor_status+"</td>";
+             progesterone_receptor_status+="<td width=20%>"+obj.data[i].progesterone_receptor_status+"</td>";
+             her2neu_status+="<td width=20%>"+obj.data[i].her2neu_status+"</td>";
+
+             dimension_range+="<td width=20%>"+obj.data[i].dimension_range+"</td>";
+             volume_range+="<td width=20%>"+obj.data[i].volume_range+"</td>";
+             laterality+="<td width=20%>"+obj.data[i].laterality+"</td>";
+             prior_treatment+="<td width=20%>"+obj.data[i].prior_treatment+"</td>";
+
+
+             treatment_intent+="<td width=20%>"+obj.data[i].treatment_intent+"</td>";
+             treatment_setting+="<td width=20%>"+obj.data[i].treatment_setting+"</td>";
+             roost_dose_modality+="<td width=20%>"+obj.data[i].base_dose_modality+"</td>";
+             additional_therapies+="<td width=20%>"+obj.data[i].additional_therapies+"</td>";
+             type_of_therapy+="<td width=20%>"+obj.data[i].type_of_therapy+"</td>";
+             timing_of_therapy+="<td width=20%>"+obj.data[i].timing_of_therapy+"</td>";
+
+
+             tcp_outcomes+="<td width=20%>"+obj.data[i].tcp_outcomes+"</td>";
+             end_point_primary+="<td width=20%>"+obj.data[i].end_point_primary+"</td>";
+             end_point_secondary+="<td width=20%>"+obj.data[i].end_point_secondary+"</td>";
+
+
+             local_control+="<td width=20%>"+obj.data[i].local_control+"</td>";
+             overall_survival+="<td width=20%>"+obj.data[i].overall_survival+"</td>";
+             quality_of_life+="<td width=20%>"+obj.data[i].quality_of_life+"</td>";
+
+
+             ntcp_outcomes_end_point_primary+="<td width=20%>"+obj.data[i].ntcp_outcomes_end_point_primary+"</td>";
+             ntcp_outcomes_end_point_secondy+="<td width=20%>"+obj.data[i].ntcp_outcomes_end_point_secondy+"</td>";
+             median_follow_up+="<td width=20%>"+obj.data[i].median_follow_up+"</td>";
+             ntcp_outcomes_acute+="<td width=20%>"+obj.data[i].acute+"</td>";
+             ntcp_outcomes_g1+="<td width=20%>"+obj.data[i].g1+"</td>";
+             ntcp_outcomes_g2+="<td width=20%>"+obj.data[i].g2+"</td>";
+             ntcp_outcomes_g3+="<td width=20%>"+obj.data[i].g3+"</td>";
+             ntcp_outcomes_g4+="<td width=20%>"+obj.data[i].g4+"</td>";
+             ntcp_outcomes_g5+="<td width=20%>"+obj.data[i].g5+"</td>";
+
+
+             regiment_treatment_intent+="<td width=20%>"+obj.data[i].regiment_treatment_intent+"</td>";
+             regiment_treatment_setting+="<td width=20%>"+obj.data[i].regiment_treatment_setting+"</td>";
+             base_dose_fraction+="<td width=20%>"+obj.data[i].base_dose_fraction+"</td>";
+             boost_dose_by_modality+="<td width=20%>"+obj.data[i].boost_dose_by_modality+"</td>";
+             regiment_additional_therapies+="<td width=20%>"+obj.data[i].regiment_additional_therapies+"</td>";
+             regiment_type_of_therapy+="<td width=20%>"+obj.data[i].regiment_type_of_therapy+"</td>";
+             regiment_timing_of_therapy+="<td width=20%>"+obj.data[i].regiment_timing_of_therapy+"</td>";
+        }
+         $("#author_name").html(author_name);
+         $("#protocol_name").html(protocol_name);
+         $("#publish_date").html(publish_date);
+         $("#study_type").html(study_type);
+         $("#analysis_type").html(analysis_type);
+         $("#study_institution").html(study_institution);
+         $("#country_of_study").html(country_of_study);
+         $("#publication_unique_id").html(publication_unique_id);
+         $("#doi").html(doi);
+
+         $("#age_range").html(age_range);
+         $("#weight_range_t").html(weight_range_t);
+         $("#weight_range_n").html(weight_range_n);
+         $("#weight_range_m").html(weight_range_m);
+         $("#performance_status").html(performance_status);
+
+         $("#cancerbyLocation").html(cancerbyLocation); 
+         $("#cancerbyType").html(cancerbyType); 
+         $("#histopathologic_type").html(histopathologic_type); 
+         $("#histopathologic_tumor_grade").html(histopathologic_tumor_grade); 
+
+         $("#staging_system_version").html(staging_system_version); 
+         $("#classification").html(classification); 
+         $("#primary_tumor").html(primary_tumor); 
+         $("#regional_lymph_node").html(regional_lymph_node); 
+         $("#distant_metastasis").html(distant_metastasis); 
+
+
+         $("#estrogen_receptor_status").html(estrogen_receptor_status); 
+         $("#progesterone_receptor_status").html(progesterone_receptor_status); 
+         $("#her2neu_status").html(her2neu_status); 
+
+         $("#dimension_range").html(dimension_range); 
+         $("#volume_range").html(volume_range); 
+         $("#laterality").html(laterality); 
+         $("#prior_treatment").html(prior_treatment); 
+
+         $("#treatment_intent").html(treatment_intent); 
+         $("#treatment_setting").html(treatment_setting); 
+         $("#roost_dose_modality").html(roost_dose_modality); 
+         $("#additional_therapies").html(additional_therapies); 
+         $("#type_of_therapy").html(type_of_therapy); 
+         $("#timing_of_therapy").html(timing_of_therapy); 
+
+         $("#tcp_outcomes").html(tcp_outcomes); 
+         $("#end_point_primary").html(end_point_primary); 
+         $("#end_point_secondary").html(end_point_secondary); 
+
+         $("#local_control").html(overall_survival); 
+         $("#overall_survival").html(overall_survival); 
+         $("#quality_of_life").html(quality_of_life); 
+
+         $("#ntcp_outcomes_end_point_primary").html(ntcp_outcomes_end_point_primary); 
+         $("#ntcp_outcomes_end_point_secondy").html(ntcp_outcomes_end_point_secondy); 
+         $("#median_follow_up").html(median_follow_up); 
+         $("#ntcp_outcomes_acute").html(ntcp_outcomes_acute); 
+         $("#ntcp_outcomes_g1").html(ntcp_outcomes_g1); 
+         $("#ntcp_outcomes_g2").html(ntcp_outcomes_g2); 
+         $("#ntcp_outcomes_g3").html(ntcp_outcomes_g3); 
+         $("#ntcp_outcomes_g4").html(ntcp_outcomes_g4); 
+         $("#ntcp_outcomes_g5").html(ntcp_outcomes_g5); 
+
+         $("#regiment_treatment_intent").html(regiment_treatment_intent); 
+         $("#regiment_treatment_setting").html(regiment_treatment_setting); 
+         $("#base_dose_fraction").html(base_dose_fraction); 
+         $("#boost_dose_by_modality").html(boost_dose_by_modality); 
+         $("#regiment_additional_therapies").html(regiment_additional_therapies); 
+         $("#regiment_type_of_therapy").html(regiment_type_of_therapy); 
+         $("#regiment_timing_of_therapy").html(regiment_timing_of_therapy); 
+
+      },
+      error: function(error) {
+            console.log(error);
+          }
+      });
+
   });
 </script>
 </body>

@@ -30,6 +30,7 @@
                             <th>LastName</th>
                             <th>FirstName</th>
                             <th>Email</th>
+                            <th>status</th>
                         </tr>
                     </thead>
                 </table>
@@ -51,10 +52,94 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="../css/jsgrid.css" />
+    <link rel="stylesheet" type="text/css" href="../css/theme.css" />
 
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/cupertino/jquery-ui.css">
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+
+    <script src="../../plugins/jsgrid/demos/db.js"></script>
+
+    <script src="../src/jsgrid.core.js"></script>
+    <script src="../src/jsgrid.load-indicator.js"></script>
+    <script src="../src/jsgrid.load-strategies.js"></script>
+    <script src="../src/jsgrid.sort-strategies.js"></script>
+    <script src="../src/jsgrid.field.js"></script>
+    <script src="../src/fields/jsgrid.field.text.js"></script>
+    <script src="../src/fields/jsgrid.field.number.js"></script>
+    <script src="../src/fields/jsgrid.field.select.js"></script>
+    <script src="../src/fields/jsgrid.field.checkbox.js"></script>
+    <script src="../src/fields/jsgrid.field.control.js"></script>
+<style>
+        .ui-widget *, .ui-widget input, .ui-widget select, .ui-widget button {
+            font-family: 'Helvetica Neue Light', 'Open Sans', Helvetica;
+            font-size: 14px;
+            font-weight: 300 !important;
+        }
+
+        .details-form-field input,
+        .details-form-field select {
+            width: 250px;
+            float: right;
+        }
+
+        .details-form-field {
+            margin: 30px 0;
+        }
+
+        .details-form-field:first-child {
+            margin-top: 10px;
+        }
+
+        .details-form-field:last-child {
+            margin-bottom: 10px;
+        }
+
+        .details-form-field button {
+            display: block;
+            width: 100px;
+            margin: 0 auto;
+        }
+
+        input.error, select.error {
+            border: 1px solid #ff9999;
+            background: #ffeeee;
+        }
+
+        label.error {
+            float: right;
+            margin-left: 100px;
+            font-size: .8em;
+            color: #ff6666;
+        }
+    </style>
+
+    <div id="detailsDialog">
+        <form id="detailsForm" name="detailsForm">
+        <input type="hidden" name="id" id="id"/>
+            <div class="details-form-field">
+                <label for="name">User Status:</label>
+                 <select class="form-select" name="user_status" id="user_status" placeholder="">
+                    <option value="active">active</option>
+                    <option value="inactive">inactive</option>
+            
+                 </select>
+            </div>
+            <div class="details-form-field">
+                <button type="submit" id="save">Edit</button>
+            </div>
+        </form>
+    </div>
 
 <script>
   $(function () {
+
+      $( "#dialog-1" ).dialog({
+         autoOpen: false,
+      });
+
+
       var table = $('#example').DataTable({
               ajax: 'http://127.0.0.1:5000/user_load',
               columns: [
@@ -63,6 +148,7 @@
                   { data: 'LastName' },
                   { data: 'FirstName' },
                   { data: 'Email' },
+                  { data: 'status' },
               ],
           });
 
@@ -75,12 +161,48 @@
 
             var currentRow=$(this).closest("tr"); 
             
-             var col1=currentRow.find("td:eq(0)").text(); 
-            console.log(col1);
-            //console.log(table.$('tr.selected').columns);
+            var id=currentRow.find("td:eq(0)").text(); 
+            var status=currentRow.find("td:eq(5)").text(); 
+       
+            $("#id").val(id);
+            
+            if(status=='active')
+              $("#user_status").html("<option value='active' selected>active</option><option value='inactive'>inactive</option>"); 
+            else
+              $("#user_status").html("<option value='active'>active</option><option value='inactive' selected>inactive</option>"); 
+
+              $("#detailsDialog").dialog("option", "title", "Edit User ")
+                    .dialog("open");
+
         }
     });
- 
+
+
+     $("#detailsDialog").dialog({
+           autoOpen: false,
+           width: 400,
+           close: function() {
+            $("#detailsForm").validate().resetForm();
+            $("#detailsForm").find(".error").removeClass("error");
+           }
+    });
+
+
+      $('#detailsForm').click(function() {
+         $.ajax({
+          url: 'http://127.0.0.1:5000/user_update_status',
+          data: $('#detailsForm').serialize(),
+          type: 'POST',
+          headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+          success: function(response) {
+             $("#detailsForm").dialog('close');
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      });
+     
 
   });
 </script>

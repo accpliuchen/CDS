@@ -29,11 +29,9 @@
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">User Name</a>
+ 
+        <div class="info" id="username">
+          
         </div>
       </div>
 
@@ -87,7 +85,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/subgrid.html" class="nav-link" target="rightdown">
+                <a href="../tables/protocollist.html" class="nav-link" target="rightdown">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Protocol Lists</p>
                 </a>
@@ -130,27 +128,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
+                <a href="../forms/match.html" class="nav-link" target="rightdown">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/editors.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/validation.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Validation</p>
+                  <p>Match</p>
                 </a>
               </li>
             </ul>
@@ -171,21 +151,15 @@
                   <p>Add</p>
                 </a>
               </li>
-              <li class="nav-item">
+
+              <li class="nav-item" id="gridusers">
                 <a href="gridusers.html" class="nav-link" target="rightdown">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List Users</p>
                 </a>
               </li>
-              <!--
-              <li class="nav-item">
-                <a href="../forms/institution.html" class="nav-link" target="rightdown">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Institution</p>
-                </a>
-              </li>
-              -->
-			  <li class="nav-item">
+ 
+			       <li class="nav-item">
                 <a href="../forms/profile.html" class="nav-link" target="rightdown">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profile</p>
@@ -222,7 +196,17 @@
 <!-- jsGrid -->
 <script src="../../plugins/jsgrid/demos/db.js"></script>
 <script src="../../plugins/jsgrid/jsgrid.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+ <script>
+  $(function () {
+       var type=localStorage.getItem("Type");
+
+       if(type!='2'){
+          $('#gridusers').hide();
+       }
+
+       var username=localStorage.getItem("UserName");
+       $('#username').html('<a href="#" class="d-block">'+username+'</a>');
+  });
+</script>
 </body>
 </html>
