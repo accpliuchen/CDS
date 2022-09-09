@@ -207,7 +207,7 @@
 
 
           $.ajax({
-          url: "http://127.0.0.1:5000/patient_load",
+          url: "https://nyuservices.azurewebsites.net/patient_load",
           headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
           success: function(response) {
             var obj = $.parseJSON(response);

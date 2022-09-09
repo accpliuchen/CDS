@@ -113,7 +113,7 @@
                 deleteConfirm: function(item) {
                     //return "The client \"" + item.ID + "\" will be removed. Are you sure?";
 					$.ajax({
-					url: "http://127.0.0.1:5000/institution_delete",
+					url: "https://nyuservices.azurewebsites.net/institution_delete",
 					data:{
 					    id:item.ID
 					},
@@ -138,7 +138,7 @@
  					   var d = $.Deferred();
 
 					  $.ajax({
-              url: 'http://127.0.0.1:5000/institution_load',
+              url: 'https://nyuservices.azurewebsites.net/institution_load',
               type: 'POST',
               dataType: "json",
               headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
@@ -226,7 +226,7 @@
 
             var editClient = function(client, isNew) {
                  $.ajax({
-                url: "http://127.0.0.1:5000/institution_edit",
+                url: "https://nyuservices.azurewebsites.net/institution_edit",
                     data: $('#detailsForm').serialize(),
                 type: 'POST',
                 headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
@@ -244,7 +244,7 @@
                 $("#jsGrid").jsGrid(isNew ? "insertItem" : "updateItem", client);
 
 				 $.ajax({
-					url: 'http://127.0.0.1:5000/institution_save',
+					url: 'https://nyuservices.azurewebsites.net/institution_save',
 					data: $('#detailsForm').serialize(),
 					type: 'POST',
 					headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },

@@ -141,7 +141,7 @@
 
 
       var table = $('#example').DataTable({
-              ajax: 'http://127.0.0.1:5000/user_load',
+              ajax: 'https://nyuservices.azurewebsites.net/user_load',
               columns: [
                   { data: 'Id' },
                   { data: 'UserName' },
@@ -190,7 +190,7 @@
 
       $('#detailsForm').click(function() {
          $.ajax({
-          url: 'http://127.0.0.1:5000/user_update_status',
+          url: 'https://nyuservices.azurewebsites.net/user_update_status',
           data: $('#detailsForm').serialize(),
           type: 'POST',
           headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
